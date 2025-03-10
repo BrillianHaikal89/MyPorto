@@ -130,7 +130,7 @@ export default function Experience() {
 							Project IoT | ULBI
 						</h3>
 						<h4 className=" font-light text-md mb-4">
-							Create a temperature control system with Arduino Uno  | Freelance
+							Create a temperature control system with Arduino Uno  | Big Task
 						</h4>
 						<p className="text-justify">
 							Design and build an IoT to control room temperature using Arduino Uno.

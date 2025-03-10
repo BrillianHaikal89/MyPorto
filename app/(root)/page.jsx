@@ -269,7 +269,7 @@ const MyPage = () => {
 											type: "spring",
 										}}>
 										<Button variation="primary">
-											<Link href="/project">
+											<Link href="/projects">
 												Learn More
 											</Link>
 										</Button>

@@ -1,26 +1,24 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "@/components/Button";
 import Image from "next/legacy/image";
 
-// images
-import ReactChat1 from "@/public/projects/trivia/trivia1.png";
-import ReactChat2 from "@/public/projects/trivia/trivia2.png";
-import ReactChat3 from "@/public/projects/trivia/trivia3.png";
+// images project 1
+import ReactChat1 from "@/public/projects/trivia/project1_1.png";
+import ReactChat2 from "@/public/projects/trivia/project1_2.png";
+import ReactChat3 from "@/public/projects/trivia/project1_3.png";
 import ProjectAll from "@/public/img/projects.png";
 
+// images project 2
+
 import Hr from "@/components/Hr";
-import ProjectCard from "./(project-card)";
-import { projects } from "./data/projects";
 import FixedButon from "@/components/FixedButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 const category = {
-	1: "Web Development",
-	9: "Other",
+	1: "Web Development"
 }
 
 export default function Page() {
@@ -125,7 +123,7 @@ export default function Page() {
 									transition={{ delay: 0.3 }}
 									className="w-full h-full shadow-lg ">
 									<Image
-										src={ReactChat3}
+										src={ReactChat2}
 										alt="Brillian"
 										layout="fill"
 										objectFit="cover"
@@ -151,7 +149,7 @@ export default function Page() {
 									}}
 									className="w-full h-full shadow-lg">
 									<Image
-										src={ReactChat2}
+										src={ReactChat3}
 										alt="Brillian"
 										layout="fill"
 										objectFit="cover"
@@ -176,107 +174,20 @@ export default function Page() {
 							type: "spring",
 						}}>
 						<h2 className="text-2xl font-bold tracking-wider mb-3">
-							Generative Trivia
+							Aplikasi Peminjaman dan Pengembalian Buku Perpustakaan ULBI Berbasis Website
 						</h2>
 						<p className="text-gray-600 text-justify title text-lg">
-							A generative trivia website built with Next.js,
-							Firebase, NextAuth, Google OAuth, and TypeScript.
-							Users can generate trivia questions for predefined
-							school subjects and answer them with a unique
-							interactive input style. The application supports
-							user authentication with Google and stores data in
-							Firestore. You can see the source code of this
-							project on my github account or preview the project
-							by clicking the button below.
-						</p>{" "}
-						<div className="mt-3">
-							<Button variation="primary">
-								<Link href="projects/trivia">More</Link>
-							</Button>
-							<Button variation="secondary">
-								<a
-									href="https://generative-trivia.vercel.app/"
-									target="_blank"
-									rel="noopener noreferrer">
-									Preview
-								</a>
-							</Button>
-						</div>
+							Aplikasi peminjaman dan pengembalian buku perpustakaan ULBI berbasis website ini dibuat untuk memudahkan mahasiswa, dosen, dan staf dalam mengelola proses peminjaman dan pengembalian buku secara digital. 
+							Aplikasi ini bertujuan meningkatkan efisiensi layanan perpustakaan, mengurangi antrian manual, serta memastikan transparansi dan akurasi dalam pencatatan transaksi. 
+							Selain itu, aplikasi ini juga dirancang untuk memberikan akses informasi ketersediaan buku secara real-time, memudahkan pengguna dalam mencari dan memesan buku, 
+							serta membantu pihak perpustakaan dalam mengelola inventaris buku secara lebih terstruktur dan terintegrasi.
+						</p>{" Menggunakan Teknologi JavaScript, PHP, CSS, SCSS, CodeIgniter "}
 					</motion.div>
 				</div>
 				<div className="mt-16 flex flex-col justify-start items-center w-full pl-10 md:pl-32">
-					<div className="flex justify-start items-start flex-col my-5 self-start ">
-						<Hr />
-						<motion.h1
-							className="text-3xl font-bold mt-3"
-							initial={{
-								opacity: 0,
-								x: -200,
-							}}
-							whileInView={{
-								opacity: 1,
-								x: 0,
-							}}
-							transition={{
-								delay: 0.7,
-								type: "spring",
-							}}>
-							Other Note Worthy Projects
-						</motion.h1>
+					<div className="flex justify-start items-start flex-col my-5 self-start ">	
 					</div>
 				</div>
-
-				{/* choose category */}
-				<motion.div
-					initial={{
-						opacity: 0,
-						x: 200,
-					}}
-					whileInView={{
-						opacity: 1,
-						x: 0,
-					}}
-					transition={{
-						type: "spring",
-					}}
-					className="flex flex-row justify-center items-start flex-wrap gap-3 md:gap-5 my-5 ">
-					{Object.keys(category).map((key, index) => (
-						<button
-							key={index}
-							className={`px-2 md:px-4 py-2 rounded-lg cursor-pointer transition-all ease duration-300 focus:bg-gray-300 focus:text-black focus:ring focus:ring-slate-500 ${
-								activeCategory === key
-									? "bg-gray-300 text-black hover:bg-gray-700 hover:text-white"
-									: "bg-gray-700 text-white hover:bg-gray-300 hover:text-black"
-							}`}
-							onClick={() => setActiveCategory(key)}>
-							{category[key]}
-						</button>
-					))}
-				</motion.div>
-
-				{/* projects */}
-				<div className="w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10 cursor-pointer">
-					{projects.map((project, index) => (
-						<ProjectCard
-							project={project}
-							key={index}
-							activeCategory={activeCategory}
-						/>
-					))}
-				</div>
-				{/* view in archive btn */}
-				<motion.div
-					initial={{
-						opacity: 0,
-					}}
-					whileInView={{
-						opacity: 1,
-					}}
-					className="flex justify-center items-center flex-col my-5 self-start ">
-					<Button variation="primary">
-						<Link href="projects/archive">View In Archive</Link>
-					</Button>
-				</motion.div>
 			</main>
 		</>
 	);
