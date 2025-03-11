@@ -50,12 +50,6 @@ export default function Education() {
 									I want to learn and explore new things in the field of informatics engineering.
 								</p>
 							</div>
-							{/* add gpa in a style */}
-							<div className="flex flex-wrap gap-2 mt-4 text-sm">
-								<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-									GPA: 3.9 out of 4
-								</div>
-							</div>
 						</div>
 					</div>
 					<div className="flex flex-col justify-start ">

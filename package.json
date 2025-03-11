@@ -10,6 +10,7 @@
     "generate-sitemap": "node generate-sitemap.js"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
@@ -18,6 +19,7 @@
     "@fullpage/react-fullpage": "^0.1.40",
     "@vercel/analytics": "^1.0.2",
     "autoprefixer": "10.4.15",
+    "emailjs-com": "^3.2.0",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "framer-motion": "^10.16.2",
