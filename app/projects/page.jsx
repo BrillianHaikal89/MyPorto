@@ -181,7 +181,7 @@ export default function Page() {
             <h1 className="text-3xl font-bold mt-3">Highlight</h1>
           </div>
         </div>
-        
+
         {/* Project 1 */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5 ">
@@ -278,10 +278,10 @@ export default function Page() {
               ULBI Library Book Borrowing and Return Application Website Based
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              This website-based ULBI library book borrowing and returning application was created to make it easier for students, 
-              lecturers, and staff to manage the book borrowing and returning process digitally. 
-              This application aims to improve the efficiency of library services, reduce manual queues, and ensure transparency and accuracy in recording transactions. 
-              In addition, this application is also designed to provide access to information on book availability in real time, make it easier for users to search for and order books, 
+              This website-based ULBI library book borrowing and returning application was created to make it easier for students,
+              lecturers, and staff to manage the book borrowing and returning process digitally.
+              This application aims to improve the efficiency of library services, reduce manual queues, and ensure transparency and accuracy in recording transactions.
+              In addition, this application is also designed to provide access to information on book availability in real time, make it easier for users to search for and order books,
               and help the library manage book inventory in a more structured and integrated manner.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
@@ -289,7 +289,7 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
-        
+
         {/* Project 2 - With Interactive Carousel */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5">
@@ -392,11 +392,10 @@ export default function Page() {
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-all ${
-                          currentImageIndex === index
+                        className={`w-3 h-3 rounded-full transition-all ${currentImageIndex === index
                             ? "bg-blue-500 scale-125"
                             : "bg-gray-300"
-                        }`}
+                          }`}
                         aria-label={`Go to image ${index + 1}`}
                       />
                     ))}
@@ -429,8 +428,8 @@ export default function Page() {
               IoT-Based Automatic Bird Feeder Design
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              This automatic bird feeder design system is made for bird lovers but have limited time so they don&apos;t have time to feed their pet birds regularly. 
-              This automatic bird feeder design system can be controlled using a smartphone so that it can make it easier for someone who keeps birds but has limited time to feed them via smartphone wherever they are. 
+              This automatic bird feeder design system is made for bird lovers but have limited time so they don&apos;t have time to feed their pet birds regularly.
+              This automatic bird feeder design system can be controlled using a smartphone so that it can make it easier for someone who keeps birds but has limited time to feed them via smartphone wherever they are.
               For now, the application on the smartphone or used to control the provision of bird feed still uses a second party, namely Blynk IoT, which you can find in your PlayStore or AppStore.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
@@ -439,136 +438,68 @@ export default function Page() {
           </motion.div>
         </div>
 
-        {/* Project 3 - SSG Project with Flip Card Effect */}
+        {/* Project 3 - SSG Project (Same style as Project 1) */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-20">
           <div className="flex justify-center items-start flex-col mb-5">
             <div className="images relative w-full aspect-square">
-              {/* Flip Card Carousel for SSG Project */}
-              <div className="relative w-full h-full flex justify-center items-center">
-                <div className="relative w-[80%] h-[70%] flex justify-center items-center perspective-1000">
-                  {/* Flip card container */}
-                  <div 
-                    className="relative w-[80%] h-[80%] cursor-pointer"
-                    onClick={() => {
-                      setIsFlipped(!isFlipped);
-                      setTimeout(() => {
-                        setCurrentSSGImageIndex(
-                          (prevIndex) => (prevIndex + 1) % ssgImages.length
-                        );
-                        setIsFlipped(false);
-                      }, 300);
-                    }}
-                  >
-                    <motion.div
-                      animate={{ rotateY: isFlipped ? 180 : 0 }}
-                      transition={{ duration: 0.6 }}
-                      style={{ transformStyle: "preserve-3d" }}
-                      className="w-full h-full relative"
-                    >
-                      {/* Front of card */}
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ 
-                          opacity: isFlipped ? 0 : 1,
-                          scale: isFlipped ? 0.8 : 1,
-                          rotateY: isFlipped ? 180 : 0
-                        }}
-                        transition={{ duration: 0.6 }}
-                        style={{ backfaceVisibility: "hidden" }}
-                        className="absolute w-full h-full shadow-lg rounded-xl overflow-hidden border-2 border-gray-200 z-50"
-                      >
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={ssgImages[currentSSGImageIndex].src}
-                            alt={ssgImages[currentSSGImageIndex].alt}
-                            layout="fill"
-                            objectFit="contain"
-                            placeholder="blur"
-                            className="rounded-xl"
-                          />
-                        </div>
-                      </motion.div>
-                      
-                      {/* Back of card - shows next image */}
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.8, rotateY: 180 }}
-                        animate={{ 
-                          opacity: isFlipped ? 1 : 0,
-                          scale: isFlipped ? 1 : 0.8,
-                          rotateY: isFlipped ? 0 : 180
-                        }}
-                        transition={{ duration: 0.6 }}
-                        style={{ backfaceVisibility: "hidden" }}
-                        className="absolute w-full h-full shadow-lg rounded-xl overflow-hidden border-2 border-gray-200 z-50 bg-gray-100 flex items-center justify-center"
-                      >
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={ssgImages[(currentSSGImageIndex + 1) % ssgImages.length].src}
-                            alt={ssgImages[(currentSSGImageIndex + 1) % ssgImages.length].alt}
-                            layout="fill"
-                            objectFit="contain"
-                            placeholder="blur"
-                            className="rounded-xl"
-                          />
-                        </div>
-                      </motion.div>
-                    </motion.div>
-                  </div>
-
-                  {/* Navigation controls */}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20">
-                    <button
-                      onClick={prevSSGImage}
-                      className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
-                      aria-label="Previous image"
-                    >
-                      <FontAwesomeIcon
-                        icon={faChevronLeft}
-                        className="text-gray-700"
-                      />
-                    </button>
-                  </div>
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20">
-                    <button
-                      onClick={nextSSGImage}
-                      className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
-                      aria-label="Next image"
-                    >
-                      <FontAwesomeIcon
-                        icon={faChevronRight}
-                        className="text-gray-700"
-                      />
-                    </button>
-                  </div>
-
-                  {/* Thumbnail indicators */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
-                    {ssgImages.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setIsFlipped(true);
-                          setTimeout(() => {
-                            setCurrentSSGImageIndex(index);
-                            setIsFlipped(false);
-                          }, 300);
-                        }}
-                        className={`w-3 h-3 rounded-full transition-all ${
-                          currentSSGImageIndex === index
-                            ? "bg-blue-500 scale-125"
-                            : "bg-gray-300"
-                        }`}
-                        aria-label={`Go to image ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Instructions overlay */}
-                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-500 whitespace-nowrap">
-                    Click image to flip • Click arrows to navigate
-                  </div>
+              {/* First Image - Will move to front when clicked */}
+              <motion.div
+                className={`absolute top-28 left-10 h-[40%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 z-10 ${activeSSGImage === 0 ? 'z-50 scale-150' : 'hover:scale-150'
+                  }`}
+                initial={{ opacity: 0, scale: 0.5, x: 100 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                onClick={() => setActiveSSGImage(0)}
+              >
+                <div className="w-full h-full shadow-lg">
+                  <Image
+                    src={SSG1}
+                    alt="SSG Project - Homepage"
+                    layout="fill"
+                    objectFit="cover"
+                    placeholder="blur"
+                  />
                 </div>
-              </div>
+              </motion.div>
+
+              {/* Second Image - Will move to front when clicked */}
+              <motion.div
+                className={`absolute top-16 right-28 h-[30%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 ${activeSSGImage === 1 ? 'z-50 scale-150' : 'hover:scale-150'
+                  }`}
+                initial={{ opacity: 0, scale: 0.5, x: -100 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                onClick={() => setActiveSSGImage(1)}
+              >
+                <div className="w-full h-full shadow-lg">
+                  <Image
+                    src={SSG2}
+                    alt="SSG Project - Blog Page"
+                    layout="fill"
+                    objectFit="cover"
+                    placeholder="blur"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Third Image - Will move to front when clicked */}
+              <motion.div
+                className={`absolute bottom-16 right-20 h-[35%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 ${activeSSGImage === 2 ? 'z-50 scale-150' : 'hover:scale-150'
+                  }`}
+                initial={{ opacity: 0, scale: 0.5, x: -100 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ delay: 0.5 }}
+                onClick={() => setActiveSSGImage(2)}
+              >
+                <div className="w-full h-full shadow-lg">
+                  <Image
+                    src={SSG3}
+                    alt="SSG Project - Markdown Support"
+                    layout="fill"
+                    objectFit="cover"
+                    placeholder="blur"
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
           <motion.div
@@ -590,25 +521,25 @@ export default function Page() {
               Website Santri Siap Guna
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              The Santri Siap Guna website is a web-based platform designed to support the registration process, attendance, and monitoring of daily activities of students in the Santri Siap Guna program. 
+              The Santri Siap Guna website is a web-based platform designed to support the registration process, attendance, and monitoring of daily activities of students in the Santri Siap Guna program.
               This website utilizes modern technology such as QR codes, and provides integrated main features to support digital and efficient student development.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
               Using Technology Next.js, React.js, HTML, CSS, JavaScript
             </div>
             <div className="flex space-x-4 mt-4">
-              <a 
-                href="https://github.com/BrillianHaikal89/SSG" 
-                target="_blank" 
+              <a
+                href="https://github.com/BrillianHaikal89/SSG"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
               >
                 <FontAwesomeIcon icon={faCode} className="mr-2" />
                 View Source Code
               </a>
-              <a 
-                href="https://santri.siapguna.org/" 
-                target="_blank" 
+              <a
+                href="https://santri.siapguna.org/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
               >
