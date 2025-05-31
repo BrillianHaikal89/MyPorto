@@ -159,7 +159,7 @@ export default function Page() {
             <h1 className="text-3xl font-bold mt-3">Highlight</h1>
           </div>
         </div>
-        
+
         {/* Project 1 */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5 ">
@@ -256,10 +256,10 @@ export default function Page() {
               ULBI Library Book Borrowing and Return Application Website Based
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              This website-based ULBI library book borrowing and returning application was created to make it easier for students, 
-              lecturers, and staff to manage the book borrowing and returning process digitally. 
-              This application aims to improve the efficiency of library services, reduce manual queues, and ensure transparency and accuracy in recording transactions. 
-              In addition, this application is also designed to provide access to information on book availability in real time, make it easier for users to search for and order books, 
+              This website-based ULBI library book borrowing and returning application was created to make it easier for students,
+              lecturers, and staff to manage the book borrowing and returning process digitally.
+              This application aims to improve the efficiency of library services, reduce manual queues, and ensure transparency and accuracy in recording transactions.
+              In addition, this application is also designed to provide access to information on book availability in real time, make it easier for users to search for and order books,
               and help the library manage book inventory in a more structured and integrated manner.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
@@ -267,7 +267,7 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
-        
+
         {/* Project 2 - With Interactive Carousel */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5">
@@ -370,11 +370,10 @@ export default function Page() {
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-all ${
-                          currentImageIndex === index
+                        className={`w-3 h-3 rounded-full transition-all ${currentImageIndex === index
                             ? "bg-blue-500 scale-125"
                             : "bg-gray-300"
-                        }`}
+                          }`}
                         aria-label={`Go to image ${index + 1}`}
                       />
                     ))}
@@ -407,8 +406,8 @@ export default function Page() {
               IoT-Based Automatic Bird Feeder Design
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              This automatic bird feeder design system is made for bird lovers but have limited time so they don&apos;t have time to feed their pet birds regularly. 
-              This automatic bird feeder design system can be controlled using a smartphone so that it can make it easier for someone who keeps birds but has limited time to feed them via smartphone wherever they are. 
+              This automatic bird feeder design system is made for bird lovers but have limited time so they don&apos;t have time to feed their pet birds regularly.
+              This automatic bird feeder design system can be controlled using a smartphone so that it can make it easier for someone who keeps birds but has limited time to feed them via smartphone wherever they are.
               For now, the application on the smartphone or used to control the provision of bird feed still uses a second party, namely Blynk IoT, which you can find in your PlayStore or AppStore.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
@@ -417,116 +416,103 @@ export default function Page() {
           </motion.div>
         </div>
 
-        {/* Project 3 - SSG Project (Same style as Project 1) */}
+        {/* Project 3 - SSG Project (Refined Version) */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-20">
+          {/* Images Section */}
           <div className="flex justify-center items-start flex-col mb-5">
-            <div className="images relative w-full aspect-square">
-              {/* First Image - Will move to front when clicked */}
-              <motion.div
-                className={`absolute top-28 left-10 h-[40%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 z-10 ${
-                  activeSSGImage === 0 ? 'z-50 scale-150' : 'hover:scale-150'
-                }`}
-                initial={{ opacity: 0, scale: 0.5, x: 100 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                onClick={() => setActiveSSGImage(0)}
-              >
-                <div className="w-full h-full shadow-lg">
-                  <Image
-                    src={SSG1}
-                    alt="SSG Project - Homepage"
-                    layout="fill"
-                    objectFit="cover"
-                    placeholder="blur"
-                  />
-                </div>
-              </motion.div>
+            <div className="relative w-full aspect-square">
+              {/* Main Image (changes based on active selection) */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeSSGImage}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 flex justify-center items-center"
+                >
+                  <div className="relative w-full h-full max-w-[90%] max-h-[90%] shadow-xl rounded-lg overflow-hidden border-2 border-gray-200">
+                    <Image
+                      src={ssgImages[activeSSGImage].src}
+                      alt={ssgImages[activeSSGImage].alt}
+                      layout="fill"
+                      objectFit="contain"
+                      placeholder="blur"
+                      className="grayscale hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
+                </motion.div>
+              </AnimatePresence>
 
-              {/* Second Image - Will move to front when clicked */}
-              <motion.div
-                className={`absolute top-16 right-28 h-[30%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 ${
-                  activeSSGImage === 1 ? 'z-50 scale-150' : 'hover:scale-150'
-                }`}
-                initial={{ opacity: 0, scale: 0.5, x: -100 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ delay: 0.3 }}
-                onClick={() => setActiveSSGImage(1)}
-              >
-                <div className="w-full h-full shadow-lg">
-                  <Image
-                    src={SSG2}
-                    alt="SSG Project - Blog Page"
-                    layout="fill"
-                    objectFit="cover"
-                    placeholder="blur"
+              {/* Thumbnail Navigation */}
+              <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-3 z-10">
+                {ssgImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveSSGImage(index)}
+                    className={`w-3 h-3 rounded-full transition-all ${activeSSGImage === index
+                        ? "bg-blue-600 scale-125"
+                        : "bg-gray-300 hover:bg-gray-400"
+                      }`}
+                    aria-label={`View ${ssgImages[index].alt}`}
                   />
-                </div>
-              </motion.div>
-
-              {/* Third Image - Will move to front when clicked */}
-              <motion.div
-                className={`absolute bottom-16 right-20 h-[35%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 ${
-                  activeSSGImage === 2 ? 'z-50 scale-150' : 'hover:scale-150'
-                }`}
-                initial={{ opacity: 0, scale: 0.5, x: -100 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-                onClick={() => setActiveSSGImage(2)}
-              >
-                <div className="w-full h-full shadow-lg">
-                  <Image
-                    src={SSG3}
-                    alt="SSG Project - Markdown Support"
-                    layout="fill"
-                    objectFit="cover"
-                    placeholder="blur"
-                  />
-                </div>
-              </motion.div>
+                ))}
+              </div>
             </div>
           </div>
+
+          {/* Content Section */}
           <motion.div
-            className="flex justify-center items-start flex-col mb-5 md:px-10"
-            initial={{
-              opacity: 0,
-              x: 200,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            transition={{
-              delay: 0.5,
-              type: "spring",
-            }}
+            className="flex flex-col justify-center items-start mb-5 md:px-10"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, type: "spring" }}
           >
-            <h2 className="text-2xl font-bold tracking-wider mb-3">
-              Website Santri Siap Guna
-            </h2>
-            <p className="text-gray-600 text-justify title text-lg">
-              The Santri Siap Guna website is a web-based platform designed to support the registration process, attendance, and monitoring of daily activities of students in the Santri Siap Guna program. 
-              This website utilizes modern technology such as QR codes, and provides integrated main features to support digital and efficient student development.
-            </p>
-            <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
-              Using Technology Next.js, React.js, HTML, CSS, JavaScript
+            <div className="mb-6">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                Website Santri Siap Guna
+              </h2>
+              <div className="w-20 h-1 bg-blue-500 mb-4"></div>
+              <p className="text-gray-600 leading-relaxed">
+                The Santri Siap Guna website is a comprehensive web-based platform designed to streamline
+                the registration process, attendance tracking, and daily activity monitoring for students
+                in the Santri Siap Guna program. Leveraging modern technologies like QR codes, the platform
+                offers integrated features to support efficient digital management of student development.
+              </p>
             </div>
-            <div className="flex space-x-4 mt-4">
-              <a 
-                href="https://github.com/BrillianHaikal89/SSG" 
-                target="_blank" 
+
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-gray-700 mb-2">Technologies Used</h3>
+              <div className="flex flex-wrap gap-2">
+                {["Next.js", "React.js", "HTML5", "CSS3", "JavaScript", "Tailwind CSS"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="bg-white text-gray-800 py-1 px-3 rounded-full text-sm font-medium shadow-sm border border-gray-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+              <a
+                href="https://github.com/BrillianHaikal89/SSG"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+                className="flex items-center justify-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
               >
-                <FontAwesomeIcon icon={faCode} className="mr-2" />
-                View Source Code
+                <FontAwesomeIcon icon={faCode} />
+                <span>View Source Code</span>
               </a>
-              <a 
-                href="https://santri.siapguna.org/" 
-                target="_blank" 
+              <a
+                href="https://santri.siapguna.org/"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+                className="flex items-center justify-center gap-2 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition-colors"
               >
-                <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2" />
-                Live Demo
+                <FontAwesomeIcon icon={faExternalLinkAlt} />
+                <span>Live Demo</span>
               </a>
             </div>
           </motion.div>
