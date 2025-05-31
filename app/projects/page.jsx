@@ -16,6 +16,11 @@ import ReactChat6 from "@/public/projects/project2/project2_3.jpg";
 import ReactChat7 from "@/public/projects/project2/project2_4.jpg";
 import ReactChat8 from "@/public/projects/project2/project2_5.jpg";
 
+// images project 3 (SSG)
+import SSG1 from "@/public/projects/project3/ssg1.png";
+import SSG2 from "@/public/projects/project3/ssg2.png";
+import SSG3 from "@/public/projects/project3/ssg3.png";
+
 import ProjectAll from "@/public/img/projects.png";
 
 import Hr from "@/components/Hr";
@@ -24,6 +29,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
+  faExternalLinkAlt,
+  faCode,
 } from "@fortawesome/free-solid-svg-icons";
 
 const category = {
@@ -33,6 +40,7 @@ const category = {
 export default function Page() {
   const [activeCategory, setActiveCategory] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentSSGImageIndex, setCurrentSSGImageIndex] = useState(0);
 
   // Project 2 images array for carousel
   const project2Images = [
@@ -48,14 +56,30 @@ export default function Page() {
       src: ReactChat6,
       alt: "IoT Bird Feeder - Full System",
     },
-	{
-		src: ReactChat7,
+    {
+      src: ReactChat7,
       alt: "IoT Bird Feeder - Full System",
-	},
-	{
-		src: ReactChat8,
+    },
+    {
+      src: ReactChat8,
       alt: "IoT Bird Feeder - Full System",
-	}
+    }
+  ];
+
+  // Project 3 (SSG) images array for carousel
+  const ssgImages = [
+    {
+      src: SSG1,
+      alt: "SSG Project - Homepage",
+    },
+    {
+      src: SSG2,
+      alt: "SSG Project - Blog Page",
+    },
+    {
+      src: SSG3,
+      alt: "SSG Project - Markdown Support",
+    }
   ];
 
   // Function to cycle to next image
@@ -73,9 +97,24 @@ export default function Page() {
     );
   };
 
+  // Functions for SSG project carousel
+  const nextSSGImage = () => {
+    setCurrentSSGImageIndex(
+      (prevIndex) => (prevIndex + 1) % ssgImages.length
+    );
+  };
+
+  const prevSSGImage = () => {
+    setCurrentSSGImageIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + ssgImages.length) % ssgImages.length
+    );
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <>
       <main className="overflow-hidden">
@@ -134,6 +173,7 @@ export default function Page() {
             <h1 className="text-3xl font-bold mt-3">Hightlight</h1>
           </div>
         </div>
+        
         {/* Project 1 */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5 ">
@@ -242,9 +282,7 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
-        <div className="mt-16 flex flex-col justify-start items-center w-full pl-10 md:pl-32">
-          <div className="flex justify-start items-start flex-col my-5 self-start "></div>
-        </div>
+        
         {/* Project 2 - With Interactive Carousel */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5">
@@ -402,6 +440,176 @@ export default function Page() {
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
               Using Technology C++
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Project 3 - SSG Project */}
+        <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-20">
+          <div className="flex justify-center items-start flex-col mb-5">
+            <div className="images relative w-full aspect-square">
+              {/* Interactive Carousel for SSG Project */}
+              <div className="relative w-full h-full flex justify-center items-center">
+                {/* Main carousel container */}
+                <div className="relative w-[80%] h-[70%] flex justify-center items-center">
+                  {/* Image carousel */}
+                  <div
+                    className="relative w-[80%] h-[80%] cursor-grab active:cursor-grabbing"
+                    onMouseDown={(e) => {
+                      const startX = e.clientX;
+
+                      const handleMouseMove = (moveEvent) => {
+                        const currentX = moveEvent.clientX;
+                        const diff = startX - currentX;
+
+                        if (Math.abs(diff) > 50) {
+                          if (diff > 0) {
+                            nextSSGImage();
+                          } else {
+                            prevSSGImage();
+                          }
+                          document.removeEventListener(
+                            "mousemove",
+                            handleMouseMove
+                          );
+                          document.removeEventListener(
+                            "mouseup",
+                            handleMouseUp
+                          );
+                        }
+                      };
+
+                      const handleMouseUp = () => {
+                        document.removeEventListener(
+                          "mousemove",
+                          handleMouseMove
+                        );
+                        document.removeEventListener("mouseup", handleMouseUp);
+                      };
+
+                      document.addEventListener("mousemove", handleMouseMove);
+                      document.addEventListener("mouseup", handleMouseUp);
+                    }}
+                  >
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentSSGImageIndex}
+                        initial={{ opacity: 0, x: 100, rotateY: 45 }}
+                        animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                        exit={{ opacity: 0, x: -100, rotateY: -45 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-full h-full shadow-lg rounded-xl overflow-hidden border-2 border-gray-200 z-50 flex items-center justify-center"
+                      >
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={ssgImages[currentSSGImageIndex].src}
+                            alt={ssgImages[currentSSGImageIndex].alt}
+                            layout="fill"
+                            objectFit="contain"
+                            placeholder="blur"
+                            className="rounded-xl"
+                          />
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Navigation controls */}
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20">
+                    <button
+                      onClick={prevSSGImage}
+                      className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
+                      aria-label="Previous image"
+                    >
+                      <FontAwesomeIcon
+                        icon={faChevronLeft}
+                        className="text-gray-700"
+                      />
+                    </button>
+                  </div>
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20">
+                    <button
+                      onClick={nextSSGImage}
+                      className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
+                      aria-label="Next image"
+                    >
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="text-gray-700"
+                      />
+                    </button>
+                  </div>
+
+                  {/* Thumbnail indicators */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+                    {ssgImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSSGImageIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-all ${
+                          currentSSGImageIndex === index
+                            ? "bg-blue-500 scale-125"
+                            : "bg-gray-300"
+                        }`}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Instructions overlay */}
+                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-500 whitespace-nowrap">
+                    Drag image to change • Click arrows to navigate
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <motion.div
+            className="flex justify-center items-start flex-col mb-5 md:px-10"
+            initial={{
+              opacity: 0,
+              x: 200,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              delay: 0.5,
+              type: "spring",
+            }}
+          >
+            <h2 className="text-2xl font-bold tracking-wider mb-3">
+              Static Site Generator (SSG) with Markdown Support
+            </h2>
+            <p className="text-gray-600 text-justify title text-lg">
+              A custom Static Site Generator (SSG) built with Node.js that transforms Markdown files into a fully functional static website. 
+              This project features automatic routing, syntax highlighting for code blocks, and a clean, responsive design. 
+              The generator supports front matter for metadata, allowing for blog posts with titles, dates, and tags. 
+              It's perfect for documentation sites, blogs, or personal websites that need fast loading times and easy content updates.
+            </p>
+            <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
+              Using Technology Node.js, Markdown, HTML, CSS, JavaScript
+            </div>
+            <div className="flex space-x-4 mt-4">
+              <a 
+                href="https://github.com/BrillianHaikal89/SSG" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                <FontAwesomeIcon icon={faCode} className="mr-2" />
+                View Source Code
+              </a>
+              <a 
+                href="https://santri.siapguna.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                <FontAwesomeIcon icon={faExternalLinkAlt} className="mr-2" />
+                Live Demo
+              </a>
             </div>
           </motion.div>
         </div>
