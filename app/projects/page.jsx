@@ -146,7 +146,6 @@ export default function Page() {
             <p className="title text-xl mt-4 tracking-wider text-gray-900 leading-[1.7rem] mb-5">
               List of my projects that I have done and{" "}
               <span className="bg-transparent md:bg-gray-100 bg-opacity-50 xl:bg-transparent">
-                {" "}
                 currently working on.
               </span>
             </p>
@@ -170,7 +169,7 @@ export default function Page() {
           <div className="flex justify-center items-center flex-col my-5 self-start ">
             <div className="bg-gray-700 w-28 h-1 rounded-full mb-3 self-start"></div>
             <div className="bg-gray-700 w-28 h-1 rounded-full translate-x-12"></div>
-            <h1 className="text-3xl font-bold mt-3">Hightlight</h1>
+            <h1 className="text-3xl font-bold mt-3">Highlight</h1>
           </div>
         </div>
         
@@ -267,8 +266,7 @@ export default function Page() {
             }}
           >
             <h2 className="text-2xl font-bold tracking-wider mb-3">
-              ULBI Library Book Borrowing and Return Application
-              Website Based
+              ULBI Library Book Borrowing and Return Application Website Based
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
               This website-based ULBI library book borrowing and returning application was created to make it easier for students, 
@@ -400,18 +398,6 @@ export default function Page() {
                     Drag image to change • Click arrows to navigate
                   </div>
                 </div>
-
-                {/* Decorative elements */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 0.8 }}
-                  transition={{ delay: 0.7 }}
-                />
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 0.6 }}
-                  transition={{ delay: 0.8 }}
-                />
               </div>
             </div>
           </div>
@@ -434,7 +420,7 @@ export default function Page() {
               IoT-Based Automatic Bird Feeder Design
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              This automatic bird feeder design system is made for bird lovers but have limited time so they don't have time to feed their pet birds regularly. 
+              This automatic bird feeder design system is made for bird lovers but have limited time so they don&apos;t have time to feed their pet birds regularly. 
               This automatic bird feeder design system can be controlled using a smartphone so that it can make it easier for someone who keeps birds but has limited time to feed them via smartphone wherever they are. 
               For now, the application on the smartphone or used to control the provision of bird feed still uses a second party, namely Blynk IoT, which you can find in your PlayStore or AppStore.
             </p>
@@ -586,7 +572,7 @@ export default function Page() {
               A custom Static Site Generator (SSG) built with Node.js that transforms Markdown files into a fully functional static website. 
               This project features automatic routing, syntax highlighting for code blocks, and a clean, responsive design. 
               The generator supports front matter for metadata, allowing for blog posts with titles, dates, and tags. 
-              It's perfect for documentation sites, blogs, or personal websites that need fast loading times and easy content updates.
+              It&apos;s perfect for documentation sites, blogs, or personal websites that need fast loading times and easy content updates.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
               Using Technology Node.js, Markdown, HTML, CSS, JavaScript
