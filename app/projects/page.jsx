@@ -566,16 +566,14 @@ export default function Page() {
             }}
           >
             <h2 className="text-2xl font-bold tracking-wider mb-3">
-              Static Site Generator (SSG) with Markdown Support
+              Website Santri Siap Guna
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              A custom Static Site Generator (SSG) built with Node.js that transforms Markdown files into a fully functional static website. 
-              This project features automatic routing, syntax highlighting for code blocks, and a clean, responsive design. 
-              The generator supports front matter for metadata, allowing for blog posts with titles, dates, and tags. 
-              It&apos;s perfect for documentation sites, blogs, or personal websites that need fast loading times and easy content updates.
+              The Santri Siap Guna website is a web-based platform designed to support the registration process, attendance, and monitoring of daily activities of students in the Santri Siap Guna program. 
+              This website utilizes modern technology such as QR codes, and provides integrated main features to support digital and efficient student development.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
-              Using Technology Node.js, Markdown, HTML, CSS, JavaScript
+              Using Technology Next.js, React.js, HTML, CSS, JavaScript
             </div>
             <div className="flex space-x-4 mt-4">
               <a 
