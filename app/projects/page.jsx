@@ -41,7 +41,7 @@ export default function Page() {
   const [activeCategory, setActiveCategory] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentSSGImageIndex, setCurrentSSGImageIndex] = useState(0);
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [activeSSGImage, setActiveSSGImage] = useState(0); // Track which SSG image is active
 
   // Project 2 images array for carousel
   const project2Images = [
@@ -67,7 +67,7 @@ export default function Page() {
     }
   ];
 
-  // Project 3 (SSG) images array for carousel
+  // Project 3 (SSG) images array
   const ssgImages = [
     {
       src: SSG1,
@@ -96,28 +96,6 @@ export default function Page() {
       (prevIndex) =>
         (prevIndex - 1 + project2Images.length) % project2Images.length
     );
-  };
-
-  // Functions for SSG project carousel with flip effect
-  const nextSSGImage = () => {
-    setIsFlipped(true);
-    setTimeout(() => {
-      setCurrentSSGImageIndex(
-        (prevIndex) => (prevIndex + 1) % ssgImages.length
-      );
-      setIsFlipped(false);
-    }, 300);
-  };
-
-  const prevSSGImage = () => {
-    setIsFlipped(true);
-    setTimeout(() => {
-      setCurrentSSGImageIndex(
-        (prevIndex) =>
-          (prevIndex - 1 + ssgImages.length) % ssgImages.length
-      );
-      setIsFlipped(false);
-    }, 300);
   };
 
   useEffect(() => {
@@ -181,7 +159,7 @@ export default function Page() {
             <h1 className="text-3xl font-bold mt-3">Highlight</h1>
           </div>
         </div>
-
+        
         {/* Project 1 */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5 ">
@@ -278,10 +256,10 @@ export default function Page() {
               ULBI Library Book Borrowing and Return Application Website Based
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              This website-based ULBI library book borrowing and returning application was created to make it easier for students,
-              lecturers, and staff to manage the book borrowing and returning process digitally.
-              This application aims to improve the efficiency of library services, reduce manual queues, and ensure transparency and accuracy in recording transactions.
-              In addition, this application is also designed to provide access to information on book availability in real time, make it easier for users to search for and order books,
+              This website-based ULBI library book borrowing and returning application was created to make it easier for students, 
+              lecturers, and staff to manage the book borrowing and returning process digitally. 
+              This application aims to improve the efficiency of library services, reduce manual queues, and ensure transparency and accuracy in recording transactions. 
+              In addition, this application is also designed to provide access to information on book availability in real time, make it easier for users to search for and order books, 
               and help the library manage book inventory in a more structured and integrated manner.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
@@ -289,7 +267,7 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
-
+        
         {/* Project 2 - With Interactive Carousel */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5">
@@ -392,10 +370,11 @@ export default function Page() {
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-all ${currentImageIndex === index
+                        className={`w-3 h-3 rounded-full transition-all ${
+                          currentImageIndex === index
                             ? "bg-blue-500 scale-125"
                             : "bg-gray-300"
-                          }`}
+                        }`}
                         aria-label={`Go to image ${index + 1}`}
                       />
                     ))}
@@ -428,8 +407,8 @@ export default function Page() {
               IoT-Based Automatic Bird Feeder Design
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              This automatic bird feeder design system is made for bird lovers but have limited time so they don&apos;t have time to feed their pet birds regularly.
-              This automatic bird feeder design system can be controlled using a smartphone so that it can make it easier for someone who keeps birds but has limited time to feed them via smartphone wherever they are.
+              This automatic bird feeder design system is made for bird lovers but have limited time so they don&apos;t have time to feed their pet birds regularly. 
+              This automatic bird feeder design system can be controlled using a smartphone so that it can make it easier for someone who keeps birds but has limited time to feed them via smartphone wherever they are. 
               For now, the application on the smartphone or used to control the provision of bird feed still uses a second party, namely Blynk IoT, which you can find in your PlayStore or AppStore.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
@@ -444,8 +423,9 @@ export default function Page() {
             <div className="images relative w-full aspect-square">
               {/* First Image - Will move to front when clicked */}
               <motion.div
-                className={`absolute top-28 left-10 h-[40%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 z-10 ${activeSSGImage === 0 ? 'z-50 scale-150' : 'hover:scale-150'
-                  }`}
+                className={`absolute top-28 left-10 h-[40%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 z-10 ${
+                  activeSSGImage === 0 ? 'z-50 scale-150' : 'hover:scale-150'
+                }`}
                 initial={{ opacity: 0, scale: 0.5, x: 100 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 onClick={() => setActiveSSGImage(0)}
@@ -463,8 +443,9 @@ export default function Page() {
 
               {/* Second Image - Will move to front when clicked */}
               <motion.div
-                className={`absolute top-16 right-28 h-[30%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 ${activeSSGImage === 1 ? 'z-50 scale-150' : 'hover:scale-150'
-                  }`}
+                className={`absolute top-16 right-28 h-[30%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 ${
+                  activeSSGImage === 1 ? 'z-50 scale-150' : 'hover:scale-150'
+                }`}
                 initial={{ opacity: 0, scale: 0.5, x: -100 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
@@ -483,8 +464,9 @@ export default function Page() {
 
               {/* Third Image - Will move to front when clicked */}
               <motion.div
-                className={`absolute bottom-16 right-20 h-[35%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 ${activeSSGImage === 2 ? 'z-50 scale-150' : 'hover:scale-150'
-                  }`}
+                className={`absolute bottom-16 right-20 h-[35%] aspect-video grayscale hover:grayscale-0 transition-all ease duration-300 ${
+                  activeSSGImage === 2 ? 'z-50 scale-150' : 'hover:scale-150'
+                }`}
                 initial={{ opacity: 0, scale: 0.5, x: -100 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ delay: 0.5 }}
@@ -521,25 +503,25 @@ export default function Page() {
               Website Santri Siap Guna
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              The Santri Siap Guna website is a web-based platform designed to support the registration process, attendance, and monitoring of daily activities of students in the Santri Siap Guna program.
+              The Santri Siap Guna website is a web-based platform designed to support the registration process, attendance, and monitoring of daily activities of students in the Santri Siap Guna program. 
               This website utilizes modern technology such as QR codes, and provides integrated main features to support digital and efficient student development.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
               Using Technology Next.js, React.js, HTML, CSS, JavaScript
             </div>
             <div className="flex space-x-4 mt-4">
-              <a
-                href="https://github.com/BrillianHaikal89/SSG"
-                target="_blank"
+              <a 
+                href="https://github.com/BrillianHaikal89/SSG" 
+                target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
               >
                 <FontAwesomeIcon icon={faCode} className="mr-2" />
                 View Source Code
               </a>
-              <a
-                href="https://santri.siapguna.org/"
-                target="_blank"
+              <a 
+                href="https://santri.siapguna.org/" 
+                target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
               >
