@@ -227,24 +227,18 @@ export default function Page() {
             }}
           >
             <h2 className="text-2xl font-bold tracking-wider mb-3">
-              Aplikasi Peminjaman dan Pengembalian Buku Perpustakaan ULBI
-              Berbasis Website
+              ULBI Library Book Borrowing and Return Application
+              Website Based
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              Aplikasi peminjaman dan pengembalian buku perpustakaan ULBI
-              berbasis website ini dibuat untuk memudahkan mahasiswa, dosen, dan
-              staf dalam mengelola proses peminjaman dan pengembalian buku
-              secara digital. Aplikasi ini bertujuan meningkatkan efisiensi
-              layanan perpustakaan, mengurangi antrian manual, serta memastikan
-              transparansi dan akurasi dalam pencatatan transaksi. Selain itu,
-              aplikasi ini juga dirancang untuk memberikan akses informasi
-              ketersediaan buku secara real-time, memudahkan pengguna dalam
-              mencari dan memesan buku, serta membantu pihak perpustakaan dalam
-              mengelola inventaris buku secara lebih terstruktur dan
-              terintegrasi.
+              This website-based ULBI library book borrowing and returning application was created to make it easier for students, 
+              lecturers, and staff to manage the book borrowing and returning process digitally. 
+              This application aims to improve the efficiency of library services, reduce manual queues, and ensure transparency and accuracy in recording transactions. 
+              In addition, this application is also designed to provide access to information on book availability in real time, make it easier for users to search for and order books, 
+              and help the library manage book inventory in a more structured and integrated manner.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
-              Menggunakan Teknologi JavaScript, PHP, CSS, SCSS, CodeIgniter
+              Using Technology JavaScript, PHP, CSS, SCSS, CodeIgniter
             </div>
           </motion.div>
         </div>
@@ -399,23 +393,15 @@ export default function Page() {
             }}
           >
             <h2 className="text-2xl font-bold tracking-wider mb-3">
-              Rancang Bangun Pakan Burung Otomatis Berbasis IoT
+              IoT-Based Automatic Bird Feeder Design
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              Sistem rancang bangun pakan burung otomatis ini dibuat untuk para
-              pecinta burung tetapi memiliki waktu yang terbatas sehingga tidak
-              memiliki waktu untuk memberi pakan burung peliharaannya secara
-              teratur. Sistem rancang bangun pakan burung otomatis ini dapat di
-              kontrol menggunakan smartphone sehingga dapat memudahkan seseorang
-              yang memelihara burung tetapi memiliki waktu yang terbatas untuk
-              memberi pakan melalui smartphone dimanapun dia berada. Untuk saat
-              ini aplikasi yang ada didalam smartphone atau yang digunakan untuk
-              mengontrol pemberian pakan burung ini masih menggunakan pihak
-              kedua yaitu Blynk IoT yang dapat kalian temukan didalam PlayStore
-              atau AppStore anda.
+              This automatic bird feeder design system is made for bird lovers but have limited time so they don't have time to feed their pet birds regularly. 
+              This automatic bird feeder design system can be controlled using a smartphone so that it can make it easier for someone who keeps birds but has limited time to feed them via smartphone wherever they are. 
+              For now, the application on the smartphone or used to control the provision of bird feed still uses a second party, namely Blynk IoT, which you can find in your PlayStore or AppStore.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
-              Menggunakan Teknologi C++
+              Using Technology C++
             </div>
           </motion.div>
         </div>
