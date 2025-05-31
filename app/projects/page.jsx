@@ -41,6 +41,7 @@ export default function Page() {
   const [activeCategory, setActiveCategory] = useState(1);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentSSGImageIndex, setCurrentSSGImageIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   // Project 2 images array for carousel
   const project2Images = [
@@ -97,18 +98,26 @@ export default function Page() {
     );
   };
 
-  // Functions for SSG project carousel
+  // Functions for SSG project carousel with flip effect
   const nextSSGImage = () => {
-    setCurrentSSGImageIndex(
-      (prevIndex) => (prevIndex + 1) % ssgImages.length
-    );
+    setIsFlipped(true);
+    setTimeout(() => {
+      setCurrentSSGImageIndex(
+        (prevIndex) => (prevIndex + 1) % ssgImages.length
+      );
+      setIsFlipped(false);
+    }, 300);
   };
 
   const prevSSGImage = () => {
-    setCurrentSSGImageIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + ssgImages.length) % ssgImages.length
-    );
+    setIsFlipped(true);
+    setTimeout(() => {
+      setCurrentSSGImageIndex(
+        (prevIndex) =>
+          (prevIndex - 1 + ssgImages.length) % ssgImages.length
+      );
+      setIsFlipped(false);
+    }, 300);
   };
 
   useEffect(() => {
@@ -430,61 +439,43 @@ export default function Page() {
           </motion.div>
         </div>
 
-        {/* Project 3 - SSG Project */}
+        {/* Project 3 - SSG Project with Flip Card Effect */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-20">
           <div className="flex justify-center items-start flex-col mb-5">
             <div className="images relative w-full aspect-square">
-              {/* Interactive Carousel for SSG Project */}
+              {/* Flip Card Carousel for SSG Project */}
               <div className="relative w-full h-full flex justify-center items-center">
-                {/* Main carousel container */}
-                <div className="relative w-[80%] h-[70%] flex justify-center items-center">
-                  {/* Image carousel */}
-                  <div
-                    className="relative w-[80%] h-[80%] cursor-grab active:cursor-grabbing"
-                    onMouseDown={(e) => {
-                      const startX = e.clientX;
-
-                      const handleMouseMove = (moveEvent) => {
-                        const currentX = moveEvent.clientX;
-                        const diff = startX - currentX;
-
-                        if (Math.abs(diff) > 50) {
-                          if (diff > 0) {
-                            nextSSGImage();
-                          } else {
-                            prevSSGImage();
-                          }
-                          document.removeEventListener(
-                            "mousemove",
-                            handleMouseMove
-                          );
-                          document.removeEventListener(
-                            "mouseup",
-                            handleMouseUp
-                          );
-                        }
-                      };
-
-                      const handleMouseUp = () => {
-                        document.removeEventListener(
-                          "mousemove",
-                          handleMouseMove
+                <div className="relative w-[80%] h-[70%] flex justify-center items-center perspective-1000">
+                  {/* Flip card container */}
+                  <div 
+                    className="relative w-[80%] h-[80%] cursor-pointer"
+                    onClick={() => {
+                      setIsFlipped(!isFlipped);
+                      setTimeout(() => {
+                        setCurrentSSGImageIndex(
+                          (prevIndex) => (prevIndex + 1) % ssgImages.length
                         );
-                        document.removeEventListener("mouseup", handleMouseUp);
-                      };
-
-                      document.addEventListener("mousemove", handleMouseMove);
-                      document.addEventListener("mouseup", handleMouseUp);
+                        setIsFlipped(false);
+                      }, 300);
                     }}
                   >
-                    <AnimatePresence mode="wait">
+                    <motion.div
+                      animate={{ rotateY: isFlipped ? 180 : 0 }}
+                      transition={{ duration: 0.6 }}
+                      style={{ transformStyle: "preserve-3d" }}
+                      className="w-full h-full relative"
+                    >
+                      {/* Front of card */}
                       <motion.div
-                        key={currentSSGImageIndex}
-                        initial={{ opacity: 0, x: 100, rotateY: 45 }}
-                        animate={{ opacity: 1, x: 0, rotateY: 0 }}
-                        exit={{ opacity: 0, x: -100, rotateY: -45 }}
-                        transition={{ duration: 0.5 }}
-                        className="w-full h-full shadow-lg rounded-xl overflow-hidden border-2 border-gray-200 z-50 flex items-center justify-center"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ 
+                          opacity: isFlipped ? 0 : 1,
+                          scale: isFlipped ? 0.8 : 1,
+                          rotateY: isFlipped ? 180 : 0
+                        }}
+                        transition={{ duration: 0.6 }}
+                        style={{ backfaceVisibility: "hidden" }}
+                        className="absolute w-full h-full shadow-lg rounded-xl overflow-hidden border-2 border-gray-200 z-50"
                       >
                         <div className="relative w-full h-full">
                           <Image
@@ -497,7 +488,31 @@ export default function Page() {
                           />
                         </div>
                       </motion.div>
-                    </AnimatePresence>
+                      
+                      {/* Back of card - shows next image */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8, rotateY: 180 }}
+                        animate={{ 
+                          opacity: isFlipped ? 1 : 0,
+                          scale: isFlipped ? 1 : 0.8,
+                          rotateY: isFlipped ? 0 : 180
+                        }}
+                        transition={{ duration: 0.6 }}
+                        style={{ backfaceVisibility: "hidden" }}
+                        className="absolute w-full h-full shadow-lg rounded-xl overflow-hidden border-2 border-gray-200 z-50 bg-gray-100 flex items-center justify-center"
+                      >
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={ssgImages[(currentSSGImageIndex + 1) % ssgImages.length].src}
+                            alt={ssgImages[(currentSSGImageIndex + 1) % ssgImages.length].alt}
+                            layout="fill"
+                            objectFit="contain"
+                            placeholder="blur"
+                            className="rounded-xl"
+                          />
+                        </div>
+                      </motion.div>
+                    </motion.div>
                   </div>
 
                   {/* Navigation controls */}
@@ -531,7 +546,13 @@ export default function Page() {
                     {ssgImages.map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => setCurrentSSGImageIndex(index)}
+                        onClick={() => {
+                          setIsFlipped(true);
+                          setTimeout(() => {
+                            setCurrentSSGImageIndex(index);
+                            setIsFlipped(false);
+                          }, 300);
+                        }}
                         className={`w-3 h-3 rounded-full transition-all ${
                           currentSSGImageIndex === index
                             ? "bg-blue-500 scale-125"
@@ -544,7 +565,7 @@ export default function Page() {
 
                   {/* Instructions overlay */}
                   <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-500 whitespace-nowrap">
-                    Drag image to change • Click arrows to navigate
+                    Click image to flip • Click arrows to navigate
                   </div>
                 </div>
               </div>
