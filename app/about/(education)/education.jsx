@@ -76,57 +76,7 @@ export default function Education() {
 								</p>
 							</div>
 						</div>
-						<div className="flex items-center gap-4 mb-4">
-							<div className="aspect-square w-10 rounded-full bg-black flex items-center justify-center text-primary-foreground">
-								<FontAwesomeIcon
-									icon={faMedal}
-									className="text-white h-5 w-5"
-								/>
-							</div>
-							<div>
-								<h3 className="font-medium">
-									Most Valuable Player (MVP Medal)
-								</h3>
-								<p className="text-sm">
-									Zeallion Badminton Tournament | July
-									2024
-								</p>
-							</div>
-						</div>
-						<div className="flex items-center gap-4 mb-4">
-							<div className="aspect-square w-10 rounded-full bg-black flex items-center justify-center text-primary-foreground">
-								<FontAwesomeIcon
-									icon={faMedal}
-									className="text-white h-5 w-5"
-								/>
-							</div>
-							<div>
-								<h3 className="font-medium">
-									1st place (Gold Medal)
-								</h3>
-								<p className="text-sm">
-									Youth Pledge Day Badminton Tournament | Okt
-									2023
-								</p>
-							</div>
-						</div>
-						<div className="flex items-center gap-4 mb-4">
-							<div className="aspect-square w-10 rounded-full bg-black flex items-center justify-center text-primary-foreground">
-								<FontAwesomeIcon
-									icon={faMedal}
-									className="text-white h-5 w-5"
-								/>
-							</div>
-							<div>
-								<h3 className="font-medium">
-									2nd place (Silver Medal)
-								</h3>
-								<p className="text-sm">
-									Independence Day Badminton Tournament | Aug
-									2023
-								</p>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
