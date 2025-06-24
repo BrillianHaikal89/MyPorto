@@ -58,52 +58,6 @@ export default function Experience() {
 					<div className="font-medium text-lg">2023</div>
 					<div>
 						<h3 className="font-semibold text-xl text-black">
-							Adeeva Aesthetic | Jendral.H.Amir Machmud street
-						</h3>
-						<h4 className=" font-light text-md mb-4">
-							CCTV Installation | Freelance
-						</h4>
-						<p className="text-justify">
-							Responsible for installing CCTV at the Adeeva Aesthetic clinic.
-						</p>
-						<div className="flex flex-wrap gap-2 mt-4 text-sm">
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Networking
-							</div>
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Problem Solving
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="grid gap-4 relative">
-					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
-					<div className="font-medium text-lg">2023</div>
-					<div>
-						<h3 className="font-semibold text-xl text-black">
-							House Under Construction | Pesantren street
-						</h3>
-						<h4 className=" font-light text-md mb-4">
-							Fingerprint Door Installation | Freelance
-						</h4>
-						<p className="text-justify">
-							Responsible for installing Fingerprint Door at the House Under Construction.
-						</p>
-						<div className="flex flex-wrap gap-2 mt-4 text-sm">
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Networking
-							</div>
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Problem Solving
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="grid gap-4 relative">
-					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
-					<div className="font-medium text-lg">2023</div>
-					<div>
-						<h3 className="font-semibold text-xl text-black">
 							ULBI UKM Badminton Shirt Design | ULBI
 						</h3>
 						<h4 className=" font-light text-md mb-4">
