@@ -4,16 +4,16 @@ export default function Experience() {
 			<div className="relative after:absolute after:inset-y-2 after:w-1 after:bg-gray-700 after:left-[-4px] md:after:left-1 lg:after:left-2 xl:after:left-3 grid gap-8 md:gap-12 pl-6 md:pl-8">
 			<div className="grid gap-4 relative">
 					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
-					<div className="font-medium text-lg">2024</div>
+					<div className="font-medium text-lg">2025</div>
 					<div>
 						<h3 className="font-semibold text-xl text-black">
-							Bumi Pancasona Sport Club | Kota Baru
+							SMAK BPK Penabur Kota Baru Parahyangan School | Kota Baru Parahyangan
 						</h3>
 						<h4 className=" font-light text-md mb-4">
 							Badminton Coach | Freelance
 						</h4>
 						<p className="text-justify">
-							responsible for the children I train, punctuality, and working together with the Bumi Pancasona Sport Club.
+							Responsible for the children I train, punctuality, and working together with the SMAK BPK Penabur Kota Baru Parahyangan School.
 						</p>
 						<div className="flex flex-wrap gap-2 mt-4 text-sm">
 							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
@@ -30,7 +30,59 @@ export default function Experience() {
 				</div>
 				<div className="grid gap-4 relative">
 					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
-					<div className="font-medium text-lg">2023</div>
+					<div className="font-medium text-lg">2025</div>
+					<div>
+						<h3 className="font-semibold text-xl text-black">
+							Lembaga Pendidikan Masyarakat Santri Siap Guna Daarut Tauhiid | Gegerkalong Street 
+						</h3>
+						<h4 className=" font-light text-md mb-4">
+							Front-End Developer   | Internship
+						</h4>
+						<p className="text-justify">
+							Responsible for creating the website interface for the LPM SSG education and training information system using Next.JS, and also working with the developer team.
+						</p>
+						<div className="flex flex-wrap gap-2 mt-4 text-sm">
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								NextJS
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Team Work
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Problem Solving
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="grid gap-4 relative">
+					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
+					<div className="font-medium text-lg">2023-2025</div>
+					<div>
+						<h3 className="font-semibold text-xl text-black">
+							Bumi Pancasona Sports Club | Kota Baru Parahyangan 
+						</h3>
+						<h4 className=" font-light text-md mb-4">
+							Badminton Coach   | Freelance
+						</h4>
+						<p className="text-justify">
+							responsible for the children I train, punctuality, and working together with the Bumi Pancasona Sports Club.
+						</p>
+						<div className="flex flex-wrap gap-2 mt-4 text-sm">
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Coach
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Leader
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Problem Solving
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="grid gap-4 relative">
+					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
+					<div className="font-medium text-lg">2023-2024</div>
 					<div>
 						<h3 className="font-semibold text-xl text-black">
 							STAI Daarut Tauhid | Gegerkalong Street
@@ -104,38 +156,26 @@ export default function Experience() {
 				</div>
 				<div className="grid gap-4 relative">
 					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
-					<div className="font-medium text-lg">2022</div>
+					<div className="font-medium text-lg">2022-2023</div>
 					<div>
 						<h3 className="font-semibold text-xl text-black">
-							Project Tracking Gmail | Home
+							Parahyangan Badminton Club | Pandiga 
 						</h3>
 						<h4 className=" font-light text-md mb-4">
-							Tracking Gmail using the linux terminal   | Freelance
+							Badminton Coach   | Freelance
 						</h4>
 						<p className="text-justify">
-							track a stolen gmail account, or track a lost cellphone by tracking a gmail account via the Kali Linux terminal.
+							responsible for the children I train, punctuality, and working together with the Parahyangan Badminton Club.
 						</p>
 						<div className="flex flex-wrap gap-2 mt-4 text-sm">
 							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								C
+								Coach
 							</div>
 							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								C++
+								Leader
 							</div>
 							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Python
-							</div>
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								JavaScript
-							</div>
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								PHP
-							</div>
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								SQl
-							</div>
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Linux
+								Problem Solving
 							</div>
 						</div>
 					</div>

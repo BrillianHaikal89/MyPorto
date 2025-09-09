@@ -8,21 +8,18 @@ export default function Stack() {
 				<span className="text-black font-bold">HTML</span> |{" "}
 				<span className="text-black font-bold">CSS</span> |{" "}
 				<span className="text-black font-bold">Javascript</span> |{" "}
-				<span className="text-black font-bold">Typescript</span> |{" "}
-				<span className="text-black font-bold">React</span> |{" "}
+				<span className="text-black font-bold">ReactJS</span> |{" "}
 				<span className="text-black font-bold">NextJS</span> |{" "}
 				<span className="text-black font-bold">TailwindCSS</span> |{" "}
 				<span className="text-black font-bold">Bootstrap</span> |{" "}
 				<span className="text-black font-medium">NodeJS</span> |{" "}
-				<span className="text-black font-medium">ExpressJS</span> |{" "}
 				<span className="text-black font-bold">MySQL</span> |{" "}
 				<span className="text-black font-medium">MongoDB</span> |{" "}
-				<span className="text-black font-medium">Firebase</span> |{" "}
 				<span className="text-black font-medium">PHP</span> |{" "}
-				<span className="text-black font-bold">Laravel</span> |{" "}
+				<span className="text-black font-bold">Code Igniter</span> |{" "}
 				<span className="text-black font-bold">Graphql</span> |{" "}
-				<span className="text-black font-medium">Dart</span> |{" "}
 				<span className="text-black font-bold">C</span> |{" "}
+				<span className="text-black font-medium">C#</span> |{" "}
 				<span className="text-black font-bold">C++</span> |{" "}
 				<span className="text-black font-medium">Python</span>
 			</p>
