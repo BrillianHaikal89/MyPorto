@@ -5,8 +5,6 @@ export default function Stack() {
 				Language & Framework
 			</h2>
 			<p className="text-gray-500 text-center tracking-widest md:px-5">
-				<span className="text-black font-bold">HTML</span> |{" "}
-				<span className="text-black font-bold">CSS</span> |{" "}
 				<span className="text-black font-bold">Javascript</span> |{" "}
 				<span className="text-black font-bold">ReactJS</span> |{" "}
 				<span className="text-black font-bold">NextJS</span> |{" "}
@@ -19,8 +17,6 @@ export default function Stack() {
 				<span className="text-black font-bold">Code Igniter</span> |{" "}
 				<span className="text-black font-bold">Graphql</span> |{" "}
 				<span className="text-black font-bold">C</span> |{" "}
-				<span className="text-black font-medium">C#</span> |{" "}
-				<span className="text-black font-bold">C++</span> |{" "}
 				<span className="text-black font-medium">Python</span>
 			</p>
 		</>

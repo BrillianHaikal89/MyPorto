@@ -6,7 +6,6 @@ export default function Tools() {
 			</h2>
 			<p className="text-gray-500 text-center tracking-wider md:px-">
 				<span className="text-black font-bold">Canva</span> |{" "}
-				<span className="text-black font-medium">CorelDRAW X7</span> |{" "}
 				<span className="text-black font-bold">Figma</span> |{" "}
 				<span className="text-black font-bold">AutoCAD</span> |{" "}
 				<span className="text-black font-medium">Visual Studio</span> |{" "}
