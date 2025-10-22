@@ -19,7 +19,7 @@ export default function Education() {
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 					<div className="px-5">
 						<div className="font-medium text-lg">
-							2022 - 2025
+							2022 - 2025 | Fresh Graduate
 						</div>
 						<div>
 							<h2 className="font-semibold text-xl">
