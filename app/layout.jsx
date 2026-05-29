@@ -1,11 +1,15 @@
-import dynamic from "next/dynamic";
 import "./globals.css";
+import "./nprogress.css";
+
 import Navbar from "@/components/Navbar";
+import Chat from "@/components/Chat";
+import TopProgressbar from "@/components/TopProgressbar";
+
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-config.autoAddCss = false;
-import "./nprogress.css";
 import { Analytics } from "@vercel/analytics/react";
+
+config.autoAddCss = false;
 
 export const metadata = {
 	title: "Brillian | Portofolio",
@@ -31,32 +35,20 @@ export const metadata = {
 		title: "Brillian | Portofolio",
 		site_name: "Brillian | Portofolio",
 		description: "My name is Brillian, This is my portofolio website.",
-		width: 1200,
-		height: 630,
 		images: [
 			{
 				url: "/og-image-rev.png",
 				alt: "Brillian Portofolio",
 			},
 		],
-		site_name: "Brillian | Portofolio",
 	},
 };
-
-
-import Chat from "@/components/Chat";
-
-const TopProgressBar = dynamic(() => import("@/components/TopProgressbar"), {
-	ssr: false,
-});
-
-
 
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body>
-				<TopProgressBar />
+				<TopProgressbar />
 				<Navbar />
 				{children}
 				<Chat />
