@@ -4,6 +4,41 @@ export default function Experience() {
 			<div className="relative after:absolute after:inset-y-2 after:w-1 after:bg-gray-700 after:left-[-4px] md:after:left-1 lg:after:left-2 xl:after:left-3 grid gap-8 md:gap-12 pl-6 md:pl-8">
 			<div className="grid gap-4 relative">
 					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
+					<div className="font-medium text-lg">2025-2026</div>
+					<div>
+						<h3 className="font-semibold text-xl text-black">
+							Balai Besar Penjaminan Mutu Pendidikan Provinsi Jawa Barat | Batujajar Street 
+						</h3>
+						<h4 className=" font-light text-md mb-4">
+							Pranata Komputer | Apprenticeship
+						</h4>
+						<p className="text-justify">
+							Responsible for supporting information technology operations, maintaining
+							web-based education systems, troubleshooting application issues, processing
+							and validating education data, and assisting the development team in improving
+							system functionality and digital services at BBPMP West Java.
+						</p>
+						<div className="flex flex-wrap gap-2 mt-4 text-sm">
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Problem Solving
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Analysis Data
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Web Design
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Web Development
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Dashboard Maintenance
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Technical Support
+							</div>
+						</div>
+					</div>
 					<div className="font-medium text-lg">2025</div>
 					<div>
 						<h3 className="font-semibold text-xl text-black">
