@@ -74,7 +74,7 @@ const MyPage = () => {
 											delay: 0.3,
 											type: "spring",
 										}}>
-										Full Stack Developer
+										Full Stack Developer | IT Support
 									</motion.h1>
 									<motion.p
 										className="title text-md  2xl:text-xl mt-4 tracking-wider text-gray-500 leading-[1.7rem]"
@@ -84,12 +84,10 @@ const MyPage = () => {
 											delay: 0.4,
 											type: "spring",
 										}}>
-										A junior fullstack developer who
-										currently focused on Web Development.
-										Other than that, I also interested in
-										UX/UI Design, Mobile and AI Development.
-										I love to learn new things and always
-										open to new opportunities.
+										Fresh Graduate D3 Teknik Informatika with experience in web development and IT support. 
+										Experienced in building web-based systems, 
+										troubleshooting technical issues, and maintaining software and hardware. 
+										Interested in Full Stack Development, IT Support, and UI/UX while continuously learning modern technologies.
 									</motion.p>
 									<motion.div
 										className="buttons flex flex-row justify-center items-center space-x-4 mt-10"
