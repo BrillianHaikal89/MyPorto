@@ -27,7 +27,6 @@ const MyPage = () => {
 		licenseKey: "gplv3-license",
 		menu: "#sidebar",
 		lockAnchors: false,
-		
 	};
 
 	return (
@@ -35,8 +34,9 @@ const MyPage = () => {
 			<ReactFullpage
 				render={({ state, fullpageApi }) => (
 					<ReactFullpage.Wrapper>
+						{/* ------------------------------ HOME ------------------------------ */}
 						<div className="section">
-							<div className="mx-auto container grid grid-cols-1 md:grid-cols-3 gap-4 p-10 overflow-hidden md:px-20">
+							<div className="mx-auto container grid grid-cols-1 md:grid-cols-3 gap-4 p-6 md:p-10 overflow-hidden md:px-20 min-h-screen items-center">
 								<motion.div
 									className="col-span-2 flex flex-col justify-center items-center md:items-start text-center md:text-start"
 									initial={{ x: -100, opacity: 0 }}
@@ -44,8 +44,9 @@ const MyPage = () => {
 									transition={{
 										type: "spring",
 									}}>
-									<div className="block md:hidden col-span-1 mx-auto my-10">
-										<div className="bg-slate-500 rounded-full h-60 w-60 grayscale hover:grayscale-0 transition-all ease duration-300">
+									{/* Foto mobile: dikecilkan dari h-60 w-60 */}
+									<div className="block md:hidden col-span-1 mx-auto my-5">
+										<div className="bg-slate-500 rounded-full h-36 w-36 sm:h-44 sm:w-44 grayscale hover:grayscale-0 transition-all ease duration-300">
 											<Image
 												src={Me}
 												width={500}
@@ -57,7 +58,7 @@ const MyPage = () => {
 										</div>
 									</div>
 									<motion.h3
-										className="uppercase text-xl mb-3 font-normal text tracking-[.5rem] text-gray-500"
+										className="uppercase text-sm sm:text-base md:text-xl mb-2 md:mb-3 font-normal tracking-[.25rem] md:tracking-[.5rem] text-gray-500"
 										initial={{ x: -100, opacity: 0 }}
 										whileInView={{ x: 0, opacity: 1 }}
 										transition={{
@@ -67,30 +68,30 @@ const MyPage = () => {
 										Muhamad Brillian Haikal
 									</motion.h3>
 									<motion.h1
-										className="text-black text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl font-bold my-2 md:my-5"
+										className="text-black text-2xl sm:text-3xl md:text-5xl font-bold leading-tight my-2 md:my-5"
 										initial={{ x: -100, opacity: 0 }}
 										whileInView={{ x: 0, opacity: 1 }}
 										transition={{
 											delay: 0.3,
 											type: "spring",
 										}}>
-										Full Stack Developer | IT Support
+										Full Stack Developer | IT Support | Sports Development
 									</motion.h1>
 									<motion.p
-										className="title text-md  2xl:text-xl mt-4 tracking-wider text-gray-500 leading-[1.7rem]"
+										className="title text-sm sm:text-base md:text-md 2xl:text-xl mt-2 md:mt-4 tracking-wide md:tracking-wider text-gray-500 leading-6 md:leading-[1.7rem]"
 										initial={{ x: -100, opacity: 0 }}
 										whileInView={{ x: 0, opacity: 1 }}
 										transition={{
 											delay: 0.4,
 											type: "spring",
 										}}>
-										Fresh Graduate D4 Informatics Engineering with experience in web development and IT support. 
-										Experienced in building web-based systems, troubleshooting technical issues, and maintaining software and hardware. 
-										Interested in Full Stack Development, IT Support, 
+										Fresh Graduate D4 Informatics Engineering with experience in web development and IT support.
+										Experienced in building web-based systems, troubleshooting technical issues, and maintaining software and hardware.
+										Interested in Full Stack Development, IT Support,
 										and UI/UX while continuously learning modern technologies.
 									</motion.p>
 									<motion.div
-										className="buttons flex flex-row justify-center items-center space-x-4 mt-10"
+										className="buttons flex flex-row justify-center items-center space-x-3 md:space-x-4 mt-6 md:mt-10"
 										initial={{ x: -100, opacity: 0 }}
 										whileInView={{ x: 0, opacity: 1 }}
 										transition={{
@@ -112,6 +113,7 @@ const MyPage = () => {
 										</Button>
 									</motion.div>
 								</motion.div>
+								{/* Foto desktop: tidak berubah */}
 								<motion.div
 									className="hidden md:flex col-span-1 mx-auto justify-center items-center "
 									initial={{ x: 100, opacity: 0 }}
@@ -133,6 +135,8 @@ const MyPage = () => {
 								</motion.div>
 							</div>
 						</div>
+
+						{/* ------------------------------ ABOUT ------------------------------ */}
 						<div className="section">
 							<div className="relative md:h-screen w-screen gap-4 flex justify-center items-center flex-col overflow-hidden">
 								<div className="z-0 mb-48 md:mb-0  md:absolute top-1/4  md:right-[10%] md:-translate-y-16 ">
@@ -202,6 +206,8 @@ const MyPage = () => {
 								</div>
 							</div>
 						</div>
+
+						{/* ----------------------------- PROJECTS ----------------------------- */}
 						<div className="section">
 							<div className="relative md:h-screen w-screen gap-4 p-10 flex justify-center items-center flex-col overflow-hidden">
 								<div className="z-0 mb-48 md:mb-0  md:absolute top-1/4  md:right-[10%] md:-translate-y-16 ">
@@ -227,7 +233,7 @@ const MyPage = () => {
 											src={ProjectAll}
 											layout="fill"
 											className="object-cover"
-											alt="Brillian Setup"
+											alt="Brillian Projects"
 											placeholder="blur"
 										/>
 									</motion.div>
@@ -275,6 +281,8 @@ const MyPage = () => {
 								</div>
 							</div>
 						</div>
+
+						{/* ----------------------------- CONTACT ----------------------------- */}
 						<div className="section">
 							<div className="relative md:h-screen w-screen  gap-4 p-10 flex justify-center items-center flex-col overflow-hidden">
 								<div className="z-0 mb-48 md:mb-0  md:absolute top-1/4  md:right-[10%] md:-translate-y-16 ">
@@ -338,7 +346,7 @@ const MyPage = () => {
 											delay: 0.3,
 											type: "spring",
 										}}>
-										<a href="mailto:Alvalen.shafel04@gmail.com?subject=Hello&body=Hello Brillian,">
+										<a href="mailto:brillian124@gmail.com?subject=Hello&body=Hello Brillian,">
 											brillian124@gmail.com
 										</a>
 									</motion.p>
