@@ -46,11 +46,11 @@ const MyPage = () => {
 									}}>
 									{/* Foto mobile: dikecilkan dari h-60 w-60 */}
 									<div className="block md:hidden col-span-1 mx-auto my-5">
-										<div className="bg-slate-500 rounded-full h-36 w-36 sm:h-44 sm:w-44 grayscale hover:grayscale-0 transition-all ease duration-300">
+										<div className="bg-slate-500 rounded-full h-40 w-28 sm:h-52 sm:w-36 grayscale hover:grayscale-0 transition-all ease duration-300">
 											<Image
 												src={Me}
-												width={500}
-												height={500}
+												width={400}
+												height={550}
 												className="rounded-full w-full h-full object-cover "
 												alt="Brillian"
 												placeholder="blur"
