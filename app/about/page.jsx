@@ -175,31 +175,20 @@ export default function Page() {
 							Muhamad Brillian Haikal
 						</h2>
 						<p className="text-gray-600 text-justify title text-lg">
-							Hey there, I&rsquo;m Muhamad Brillian Haikal, a
+							Hey there, I&rsquo;m Muhamad Brillian Haikal, an
 							<span className="text-black font-medium">
 								{" "}
-								tech enthusiast
+								Applied Bachelor graduate
 							</span>{" "}
-							and
+							in Informatics Engineering from
 							<span className="text-black font-medium">
 								{" "}
-								aspiring Web Developer.
-							</span>{" "}
-							Originating from Cimahi, West Java, Indonesia,
-							I&rsquo;m currently embarking on a fascinating
-							journey at{" "}
-							<span className="text-black font-medium">
 								University of Logistics and International Business,
 							</span>{" "}
-							where I&rsquo;m pursuing my degree in{" "}
-							<span className="text-black font-medium">
-								Informatics Engineering.
-							</span>{" "}
-							My passion for technology and coding knows no
-							bounds. Beyond the world of coding, I find myself
-							deeply immersed in the realms of Badminton, design, and the fascinating universe of AI. I
-							believe that in today&rsquo;s fast-paced digital
-							landscape, being a
+							equipped with hands-on experience in web development and IT support.
+							Originating from Cimahi, West Java, Indonesia, my passion for technology and coding knows no bounds.
+							Beyond coding, I am deeply immersed in badminton coaching, UI/UX design, and the fascinating universe of AI.
+							I believe that in today&rsquo;s fast-paced digital landscape, being a
 							<span className="text-black font-medium">
 								{" "}
 								lifelong learner
