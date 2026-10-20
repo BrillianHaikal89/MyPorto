@@ -13,7 +13,7 @@ const experiences = [
   },
   {
     period: "2024-Now",
-    title: "Private Badminton | Freelance",
+    title: "Private Badminton | Kota Baru Parahyangan",
     role: "Badminton Coach | Freelance",
     description:
       "Provided personalized private badminton coaching for children, adults, and seniors, focusing on comprehensive technique and footwork development while maintaining strict punctuality and dedication to student progress.",
