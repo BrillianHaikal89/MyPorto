@@ -36,7 +36,7 @@ const MyPage = () => {
 					<ReactFullpage.Wrapper>
 						{/* ------------------------------ HOME ------------------------------ */}
 						<div className="section">
-							<div className="mx-auto container grid grid-cols-1 md:grid-cols-3 gap-4 p-6 md:p-10 overflow-hidden md:px-20 min-h-screen items-center">
+							<div className="mx-auto container grid grid-cols-1 md:grid-cols-3 gap-4 px-6 pb-6 pt-20 md:p-10 overflow-hidden md:px-20 min-h-screen items-start md:items-center">
 								<motion.div
 									className="col-span-2 flex flex-col justify-center items-center md:items-start text-center md:text-start"
 									initial={{ x: -100, opacity: 0 }}
