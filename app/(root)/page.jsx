@@ -84,10 +84,10 @@ const MyPage = () => {
 											delay: 0.4,
 											type: "spring",
 										}}>
-										Fresh Graduate D3 Teknik Informatika with experience in web development and IT support. 
-										Experienced in building web-based systems, 
-										troubleshooting technical issues, and maintaining software and hardware. 
-										Interested in Full Stack Development, IT Support, and UI/UX while continuously learning modern technologies.
+										Fresh Graduate D4 Informatics Engineering with experience in web development and IT support. 
+										Experienced in building web-based systems, troubleshooting technical issues, and maintaining software and hardware. 
+										Interested in Full Stack Development, IT Support, 
+										and UI/UX while continuously learning modern technologies.
 									</motion.p>
 									<motion.div
 										className="buttons flex flex-row justify-center items-center space-x-4 mt-10"

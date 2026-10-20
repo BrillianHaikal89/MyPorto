@@ -4,13 +4,66 @@ export default function Experience() {
 			<div className="relative after:absolute after:inset-y-2 after:w-1 after:bg-gray-700 after:left-[-4px] md:after:left-1 lg:after:left-2 xl:after:left-3 grid gap-8 md:gap-12 pl-6 md:pl-8">
 			<div className="grid gap-4 relative">
 					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
+					<div className="font-medium text-lg">2022-Now</div>
+					<div>
+						<h3 className="font-semibold text-xl text-black">
+							Parahyangan Badminton Academy | Bumi Pancasona Sports Club | Kota Baru Parahyangan 
+						</h3>
+						<h4 className=" font-light text-md mb-4">
+							Badminton Coach  | Freelance
+						</h4>
+						<p className="text-justify">
+							responsible for the children I train, punctuality, and working together with the Bumi Pancasona Sports Club.
+						</p>
+						<div className="flex flex-wrap gap-2 mt-4 text-sm">
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Coach
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Team Work
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Problem Solving
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="grid gap-4 relative">
+					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
+					<div className="font-medium text-lg">2024-Now</div>
+					<div>
+						<h3 className="font-semibold text-xl text-black">
+							Private Badminton | Freelance 
+						</h3>
+						<h4 className=" font-light text-md mb-4">
+							Badminton Coach | Freelance
+						</h4>
+						<p className="text-justify">
+							Provided personalized private badminton coaching for children, adults, and seniors, focusing on comprehensive technique 
+							and footwork development while maintaining strict punctuality and dedication to student progress.
+						</p>
+						<div className="flex flex-wrap gap-2 mt-4 text-sm">
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Coach
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Leader
+							</div>
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Problem Solving
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="grid gap-4 relative">
+					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
 					<div className="font-medium text-lg">2025-2026</div>
 					<div>
 						<h3 className="font-semibold text-xl text-black">
 							Balai Besar Penjaminan Mutu Pendidikan Provinsi Jawa Barat | Batujajar Street 
 						</h3>
 						<h4 className=" font-light text-md mb-4">
-							Pranata Komputer | Apprenticeship
+							Pranata Komputer | Apprenticeship | Maganghub
 						</h4>
 						<p className="text-justify">
 							Responsible for supporting information technology operations, maintaining
@@ -19,6 +72,9 @@ export default function Experience() {
 							system functionality and digital services at BBPMP West Java.
 						</p>
 						<div className="flex flex-wrap gap-2 mt-4 text-sm">
+							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
+								Team Work
+							</div>
 							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
 								Problem Solving
 							</div>
@@ -39,23 +95,26 @@ export default function Experience() {
 							</div>
 						</div>
 					</div>
-					<div className="font-medium text-lg">2025</div>
+				</div>
+				<div className="grid gap-4 relative">
+					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
+					<div className="font-medium text-lg">2025-2026</div>
 					<div>
 						<h3 className="font-semibold text-xl text-black">
-							SMAK BPK Penabur Kota Baru Parahyangan School | Kota Baru Parahyangan
+							SMAK BPK Penabur Kota Baru Parahyangan School | Kota Baru Parahyangan 
 						</h3>
 						<h4 className=" font-light text-md mb-4">
-							Badminton Coach | Freelance
+							Head Badminton Coach   | Freelance
 						</h4>
 						<p className="text-justify">
 							Responsible for the children I train, punctuality, and working together with the SMAK BPK Penabur Kota Baru Parahyangan School.
 						</p>
 						<div className="flex flex-wrap gap-2 mt-4 text-sm">
 							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Coach
+								Leader
 							</div>
 							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Leader
+								Team Work
 							</div>
 							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
 								Problem Solving
@@ -82,32 +141,6 @@ export default function Experience() {
 							</div>
 							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
 								Team Work
-							</div>
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Problem Solving
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="grid gap-4 relative">
-					<div className="aspect-square w-5 bg-black rounded-full absolute left-0 translate-x-[-29.5px] z-10" />
-					<div className="font-medium text-lg">2023-2025</div>
-					<div>
-						<h3 className="font-semibold text-xl text-black">
-							Bumi Pancasona Sports Club | Kota Baru Parahyangan 
-						</h3>
-						<h4 className=" font-light text-md mb-4">
-							Badminton Coach   | Freelance
-						</h4>
-						<p className="text-justify">
-							responsible for the children I train, punctuality, and working together with the Bumi Pancasona Sports Club.
-						</p>
-						<div className="flex flex-wrap gap-2 mt-4 text-sm">
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Coach
-							</div>
-							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
-								Leader
 							</div>
 							<div className="bg-gray-300 text-black px-2 py-1 rounded-2xl">
 								Problem Solving
