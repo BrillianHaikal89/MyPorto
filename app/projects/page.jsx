@@ -41,6 +41,11 @@ import Spmb1 from "@/public/projects/project7/portfolio1.png";
 import Spmb2 from "@/public/projects/project7/portfolio2.png";
 import Spmb3 from "@/public/projects/project7/portfolio3.png";
 
+// images project 8 (Website Marketplace)
+import Marketplace1 from "@/public/projects/project8/portfolio1.png";
+import Marketplace2 from "@/public/projects/project8/portfolio2.png";
+import Marketplace3 from "@/public/projects/project8/portfolio3.png";
+
 import ProjectAll from "@/public/img/projects.png";
 
 import Hr from "@/components/Hr";
@@ -65,6 +70,7 @@ export default function Page() {
   const [currentPortfolioImageIndex, setCurrentPortfolioImageIndex] = useState(0);
   const [currentPmpImageIndex, setCurrentPmpImageIndex] = useState(0);
   const [currentSpmbImageIndex, setCurrentSpmbImageIndex] = useState(0);
+  const [currentMarketplaceImageIndex, setCurrentMarketplaceImageIndex] = useState(0);
 
   // Project 2 images array for carousel
   const project2Images = [
@@ -170,6 +176,22 @@ export default function Page() {
     }
   ];
 
+  // Project 8 (Website Marketplace) images array for carousel
+  const marketplaceImages = [
+    {
+      src: Marketplace1,
+      alt: "Website Marketplace - Homepage",
+    },
+    {
+      src: Marketplace2,
+      alt: "Website Marketplace - Product Listing",
+    },
+    {
+      src: Marketplace3,
+      alt: "Website Marketplace - Checkout & Cart",
+    }
+  ];
+
   // Function to cycle to next image
   const nextImage = () => {
     setCurrentImageIndex(
@@ -255,6 +277,20 @@ export default function Page() {
     );
   };
 
+  // Functions for Website Marketplace project carousel
+  const nextMarketplaceImage = () => {
+    setCurrentMarketplaceImageIndex(
+      (prevIndex) => (prevIndex + 1) % marketplaceImages.length
+    );
+  };
+
+  const prevMarketplaceImage = () => {
+    setCurrentMarketplaceImageIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + marketplaceImages.length) % marketplaceImages.length
+    );
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -317,7 +353,7 @@ export default function Page() {
           </div>
         </div>
         
-        {/* Project 1 */}
+        {/* Project 1 - ULBI Library */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5 ">
             <div className="images relative w-full aspect-square">
@@ -424,157 +460,8 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
-        
-        {/* Project 2 - With Interactive Carousel */}
-        <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
-          <div className="flex justify-center items-start flex-col mb-5">
-            <div className="images relative w-full aspect-square">
-              {/* Interactive Carousel for Project 2 */}
-              <div className="relative w-full h-full flex justify-center items-center">
-                {/* Main carousel container */}
-                <div className="relative w-[80%] h-[70%] flex justify-center items-center">
-                  {/* Image carousel */}
-                  <div
-                    className="relative w-[80%] h-[80%] cursor-grab active:cursor-grabbing"
-                    onMouseDown={(e) => {
-                      const startX = e.clientX;
 
-                      const handleMouseMove = (moveEvent) => {
-                        const currentX = moveEvent.clientX;
-                        const diff = startX - currentX;
-
-                        if (Math.abs(diff) > 50) {
-                          if (diff > 0) {
-                            nextImage();
-                          } else {
-                            prevImage();
-                          }
-                          document.removeEventListener(
-                            "mousemove",
-                            handleMouseMove
-                          );
-                          document.removeEventListener(
-                            "mouseup",
-                            handleMouseUp
-                          );
-                        }
-                      };
-
-                      const handleMouseUp = () => {
-                        document.removeEventListener(
-                          "mousemove",
-                          handleMouseMove
-                        );
-                        document.removeEventListener("mouseup", handleMouseUp);
-                      };
-
-                      document.addEventListener("mousemove", handleMouseMove);
-                      document.addEventListener("mouseup", handleMouseUp);
-                    }}
-                  >
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={currentImageIndex}
-                        initial={{ opacity: 0, x: 100, rotateY: 45 }}
-                        animate={{ opacity: 1, x: 0, rotateY: 0 }}
-                        exit={{ opacity: 0, x: -100, rotateY: -45 }}
-                        transition={{ duration: 0.5 }}
-                        className="w-full h-full shadow-lg rounded-xl overflow-hidden border-2 border-gray-200 z-50 flex items-center justify-center"
-                      >
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={project2Images[currentImageIndex].src}
-                            alt={project2Images[currentImageIndex].alt}
-                            layout="fill"
-                            objectFit="contain"
-                            placeholder="blur"
-                            className="rounded-xl"
-                          />
-                        </div>
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Navigation controls */}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20">
-                    <button
-                      onClick={prevImage}
-                      className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
-                      aria-label="Previous image"
-                    >
-                      <FontAwesomeIcon
-                        icon={faChevronLeft}
-                        className="text-gray-700"
-                      />
-                    </button>
-                  </div>
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20">
-                    <button
-                      onClick={nextImage}
-                      className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
-                      aria-label="Next image"
-                    >
-                      <FontAwesomeIcon
-                        icon={faChevronRight}
-                        className="text-gray-700"
-                      />
-                    </button>
-                  </div>
-
-                  {/* Thumbnail indicators */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
-                    {project2Images.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-all ${
-                          currentImageIndex === index
-                            ? "bg-blue-500 scale-125"
-                            : "bg-gray-300"
-                        }`}
-                        aria-label={`Go to image ${index + 1}`}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Instructions overlay */}
-                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-500 whitespace-nowrap">
-                    Drag image to change • Click arrows to navigate
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <motion.div
-            className="flex justify-center items-start flex-col mb-5 md:px-10"
-            initial={{
-              opacity: 0,
-              x: 200,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            transition={{
-              delay: 0.5,
-              type: "spring",
-            }}
-          >
-            <h2 className="text-2xl font-bold tracking-wider mb-3">
-              IoT-Based Automatic Bird Feeder Design
-            </h2>
-            <p className="text-gray-600 text-justify title text-lg">
-              This automatic bird feeder design system is made for bird lovers but have limited time so they don&apos;t have time to feed their pet birds regularly. 
-              This automatic bird feeder design system can be controlled using a smartphone so that it can make it easier for someone who keeps birds but has limited time to feed them via smartphone wherever they are. 
-              For now, the application on the smartphone or used to control the provision of bird feed still uses a second party, namely Blynk IoT, which you can find in your PlayStore or AppStore.
-            </p>
-            <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
-              Using Technology C++
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Project 3 - SSG Project */}
+        {/* Project 2 - SSG (Website Santri Siap Guna) */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5">
             <div className="images relative w-full aspect-square">
@@ -742,11 +629,11 @@ export default function Page() {
           </motion.div>
         </div>
 
-        {/* Project 4 - Cafe Cashier */}
+        {/* Project 3 - Dashboard SPMB Provinsi Jawa Barat */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5">
             <div className="images relative w-full aspect-square">
-              {/* Interactive Carousel for Cafe Cashier */}
+              {/* Interactive Carousel for Dashboard SPMB Provinsi Jawa Barat */}
               <div className="relative w-full h-full flex justify-center items-center">
                 {/* Main carousel container */}
                 <div className="relative w-[80%] h-[70%] flex justify-center items-center">
@@ -762,9 +649,9 @@ export default function Page() {
 
                         if (Math.abs(diff) > 50) {
                           if (diff > 0) {
-                            nextCafeImage();
+                            nextSpmbImage();
                           } else {
-                            prevCafeImage();
+                            prevSpmbImage();
                           }
                           document.removeEventListener(
                             "mousemove",
@@ -791,7 +678,7 @@ export default function Page() {
                   >
                     <AnimatePresence mode="wait">
                       <motion.div
-                        key={currentCafeImageIndex}
+                        key={currentSpmbImageIndex}
                         initial={{ opacity: 0, x: 100, rotateY: 45 }}
                         animate={{ opacity: 1, x: 0, rotateY: 0 }}
                         exit={{ opacity: 0, x: -100, rotateY: -45 }}
@@ -800,8 +687,8 @@ export default function Page() {
                       >
                         <div className="relative w-full h-full">
                           <Image
-                            src={cafeImages[currentCafeImageIndex].src}
-                            alt={cafeImages[currentCafeImageIndex].alt}
+                            src={spmbImages[currentSpmbImageIndex].src}
+                            alt={spmbImages[currentSpmbImageIndex].alt}
                             layout="fill"
                             objectFit="contain"
                             placeholder="blur"
@@ -815,7 +702,7 @@ export default function Page() {
                   {/* Navigation controls */}
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20">
                     <button
-                      onClick={prevCafeImage}
+                      onClick={prevSpmbImage}
                       className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
                       aria-label="Previous image"
                     >
@@ -827,7 +714,7 @@ export default function Page() {
                   </div>
                   <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20">
                     <button
-                      onClick={nextCafeImage}
+                      onClick={nextSpmbImage}
                       className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
                       aria-label="Next image"
                     >
@@ -840,12 +727,12 @@ export default function Page() {
 
                   {/* Thumbnail indicators */}
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
-                    {cafeImages.map((_, index) => (
+                    {spmbImages.map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => setCurrentCafeImageIndex(index)}
+                        onClick={() => setCurrentSpmbImageIndex(index)}
                         className={`w-3 h-3 rounded-full transition-all ${
-                          currentCafeImageIndex === index
+                          currentSpmbImageIndex === index
                             ? "bg-blue-500 scale-125"
                             : "bg-gray-300"
                         }`}
@@ -878,22 +765,25 @@ export default function Page() {
             }}
           >
             <h2 className="text-2xl font-bold tracking-wider mb-3">
-              Cafe Cashier Management System
+              Dashboard SPMB Provinsi Jawa Barat
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              A comprehensive cafe cashier system designed to streamline order management, 
-              payment processing, and inventory tracking for small to medium-sized cafes. 
-              The system features an intuitive interface for cashiers, real-time sales reporting, 
-              and integration with kitchen display systems. It helps cafe owners manage their 
-              business more efficiently with features like customer loyalty programs, 
-              sales analytics, and employee performance tracking.
+              Dashboard SPMB Provinsi Jawa Barat is a web-based information system built 
+              with Next.js to support the implementation of SPMB (Sistem Penerimaan Murid Baru) 
+              in West Java Province. The dashboard provides real-time monitoring of student 
+              admission data, school capacity management, applicant verification, and 
+              comprehensive reporting features for education authorities. With a modern 
+              and responsive interface, the platform enables administrators to track 
+              registration progress, manage school quotas, verify applicant documents, 
+              and generate accurate reports to ensure a transparent, fair, and efficient 
+              student admission process across the region.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
-              Using Technology React.js, Node.js, Express, MongoDB, Tailwind CSS
+              Using Technology Next.js, React.js, Tailwind CSS, TypeScript
             </div>
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <a
-                href="https://github.com/BrillianHaikal89/caffe-cashier"
+                href="https://github.com/BrillianHaikal89/dashboard-spmb-jabar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
@@ -902,7 +792,7 @@ export default function Page() {
                 <span>View Source Code</span>
               </a>
               <a
-                href="https://caffe-cashier-att.brlnz.my.id/"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition-colors"
@@ -914,7 +804,356 @@ export default function Page() {
           </motion.div>
         </div>
 
-        {/* Project 5 - Portfolio */}
+        {/* Project 4 - Dashboard PMP Jabar */}
+        <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
+          <div className="flex justify-center items-start flex-col mb-5">
+            <div className="images relative w-full aspect-square">
+              {/* Interactive Carousel for Dashboard PMP Jabar */}
+              <div className="relative w-full h-full flex justify-center items-center">
+                {/* Main carousel container */}
+                <div className="relative w-[80%] h-[70%] flex justify-center items-center">
+                  {/* Image carousel */}
+                  <div
+                    className="relative w-[80%] h-[80%] cursor-grab active:cursor-grabbing"
+                    onMouseDown={(e) => {
+                      const startX = e.clientX;
+
+                      const handleMouseMove = (moveEvent) => {
+                        const currentX = moveEvent.clientX;
+                        const diff = startX - currentX;
+
+                        if (Math.abs(diff) > 50) {
+                          if (diff > 0) {
+                            nextPmpImage();
+                          } else {
+                            prevPmpImage();
+                          }
+                          document.removeEventListener(
+                            "mousemove",
+                            handleMouseMove
+                          );
+                          document.removeEventListener(
+                            "mouseup",
+                            handleMouseUp
+                          );
+                        }
+                      };
+
+                      const handleMouseUp = () => {
+                        document.removeEventListener(
+                          "mousemove",
+                          handleMouseMove
+                        );
+                        document.removeEventListener("mouseup", handleMouseUp);
+                      };
+
+                      document.addEventListener("mousemove", handleMouseMove);
+                      document.addEventListener("mouseup", handleMouseUp);
+                    }}
+                  >
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentPmpImageIndex}
+                        initial={{ opacity: 0, x: 100, rotateY: 45 }}
+                        animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                        exit={{ opacity: 0, x: -100, rotateY: -45 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-full h-full shadow-lg rounded-xl overflow-hidden border-2 border-gray-200 z-50 flex items-center justify-center"
+                      >
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={pmpImages[currentPmpImageIndex].src}
+                            alt={pmpImages[currentPmpImageIndex].alt}
+                            layout="fill"
+                            objectFit="contain"
+                            placeholder="blur"
+                            className="rounded-xl"
+                          />
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Navigation controls */}
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20">
+                    <button
+                      onClick={prevPmpImage}
+                      className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
+                      aria-label="Previous image"
+                    >
+                      <FontAwesomeIcon
+                        icon={faChevronLeft}
+                        className="text-gray-700"
+                      />
+                    </button>
+                  </div>
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20">
+                    <button
+                      onClick={nextPmpImage}
+                      className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
+                      aria-label="Next image"
+                    >
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="text-gray-700"
+                      />
+                    </button>
+                  </div>
+
+                  {/* Thumbnail indicators */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+                    {pmpImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentPmpImageIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-all ${
+                          currentPmpImageIndex === index
+                            ? "bg-blue-500 scale-125"
+                            : "bg-gray-300"
+                        }`}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Instructions overlay */}
+                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-500 whitespace-nowrap">
+                    Drag image to change • Click arrows to navigate
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <motion.div
+            className="flex justify-center items-start flex-col mb-5 md:px-10"
+            initial={{
+              opacity: 0,
+              x: 200,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              delay: 0.5,
+              type: "spring",
+            }}
+          >
+            <h2 className="text-2xl font-bold tracking-wider mb-3">
+              Dashboard PMP Provinsi Jawa Barat
+            </h2>
+            <p className="text-gray-600 text-justify title text-lg">
+              Dashboard PMP Jabar is a web-based information system built with Next.js 
+              to support monitoring and management of the PMP (Peta Mutu Pendidikan) 
+              program in West Java. The dashboard provides real-time data 
+              visualization, participant management, and reporting features that help 
+              administrators track program progress efficiently. With a modern and 
+              responsive interface, the platform enables stakeholders to access 
+              critical insights, generate reports, and make data-driven decisions 
+              to improve the quality of education across the region.
+            </p>
+            <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
+              Using Technology Next.js, React.js, Tailwind CSS, TypeScript
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+              <a
+                href="https://github.com/BrillianHaikal89/dashboard-pmp-jabar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                <FontAwesomeIcon icon={faCode} />
+                <span>View Source Code</span>
+              </a>
+              <a
+                href="https://dashboard-pmp-jabar.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition-colors"
+              >
+                <FontAwesomeIcon icon={faExternalLinkAlt} />
+                <span>Live Demo</span>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Project 5 - Website Marketplace */}
+        <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
+          <div className="flex justify-center items-start flex-col mb-5">
+            <div className="images relative w-full aspect-square">
+              {/* Interactive Carousel for Website Marketplace */}
+              <div className="relative w-full h-full flex justify-center items-center">
+                {/* Main carousel container */}
+                <div className="relative w-[80%] h-[70%] flex justify-center items-center">
+                  {/* Image carousel */}
+                  <div
+                    className="relative w-[80%] h-[80%] cursor-grab active:cursor-grabbing"
+                    onMouseDown={(e) => {
+                      const startX = e.clientX;
+
+                      const handleMouseMove = (moveEvent) => {
+                        const currentX = moveEvent.clientX;
+                        const diff = startX - currentX;
+
+                        if (Math.abs(diff) > 50) {
+                          if (diff > 0) {
+                            nextMarketplaceImage();
+                          } else {
+                            prevMarketplaceImage();
+                          }
+                          document.removeEventListener(
+                            "mousemove",
+                            handleMouseMove
+                          );
+                          document.removeEventListener(
+                            "mouseup",
+                            handleMouseUp
+                          );
+                        }
+                      };
+
+                      const handleMouseUp = () => {
+                        document.removeEventListener(
+                          "mousemove",
+                          handleMouseMove
+                        );
+                        document.removeEventListener("mouseup", handleMouseUp);
+                      };
+
+                      document.addEventListener("mousemove", handleMouseMove);
+                      document.addEventListener("mouseup", handleMouseUp);
+                    }}
+                  >
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentMarketplaceImageIndex}
+                        initial={{ opacity: 0, x: 100, rotateY: 45 }}
+                        animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                        exit={{ opacity: 0, x: -100, rotateY: -45 }}
+                        transition={{ duration: 0.5 }}
+                        className="w-full h-full shadow-lg rounded-xl overflow-hidden border-2 border-gray-200 z-50 flex items-center justify-center"
+                      >
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={marketplaceImages[currentMarketplaceImageIndex].src}
+                            alt={marketplaceImages[currentMarketplaceImageIndex].alt}
+                            layout="fill"
+                            objectFit="contain"
+                            placeholder="blur"
+                            className="rounded-xl"
+                          />
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Navigation controls */}
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20">
+                    <button
+                      onClick={prevMarketplaceImage}
+                      className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
+                      aria-label="Previous image"
+                    >
+                      <FontAwesomeIcon
+                        icon={faChevronLeft}
+                        className="text-gray-700"
+                      />
+                    </button>
+                  </div>
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20">
+                    <button
+                      onClick={nextMarketplaceImage}
+                      className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
+                      aria-label="Next image"
+                    >
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="text-gray-700"
+                      />
+                    </button>
+                  </div>
+
+                  {/* Thumbnail indicators */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+                    {marketplaceImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentMarketplaceImageIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-all ${
+                          currentMarketplaceImageIndex === index
+                            ? "bg-blue-500 scale-125"
+                            : "bg-gray-300"
+                        }`}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Instructions overlay */}
+                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-500 whitespace-nowrap">
+                    Drag image to change • Click arrows to navigate
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <motion.div
+            className="flex justify-center items-start flex-col mb-5 md:px-10"
+            initial={{
+              opacity: 0,
+              x: 200,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              delay: 0.5,
+              type: "spring",
+            }}
+          >
+            <h2 className="text-2xl font-bold tracking-wider mb-3">
+              Website Marketplace
+            </h2>
+            <p className="text-gray-600 text-justify title text-lg">
+              HypeBoss Store is a modern e-commerce marketplace platform built with 
+              Next.js that provides a seamless online shopping experience for customers 
+              and a powerful management system for sellers. The platform features product 
+              catalog browsing, advanced search and filtering, shopping cart, secure 
+              checkout process, order tracking, and user authentication. With a responsive 
+              and intuitive interface, customers can easily discover products, manage their 
+              wishlist, and complete transactions securely. The marketplace also includes 
+              seller dashboards for product management, inventory tracking, and sales 
+              analytics, making it a complete solution for digital commerce.
+            </p>
+            <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
+              Using Technology Next.js, React.js, Tailwind CSS, TypeScript
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+              <a
+                href="https://github.com/BrillianHaikal89/fe-hypeboss-store"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                <FontAwesomeIcon icon={faCode} />
+                <span>View Source Code</span>
+              </a>
+              <a
+                href="https://hypeboss-store.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition-colors"
+              >
+                <FontAwesomeIcon icon={faExternalLinkAlt} />
+                <span>Live Demo</span>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Project 6 - Modern Portfolio Website */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5">
             <div className="images relative w-full aspect-square">
@@ -1088,11 +1327,11 @@ export default function Page() {
           </motion.div>
         </div>
 
-        {/* Project 6 - Dashboard PMP Jabar */}
+        {/* Project 7 - IoT-Based Automatic Bird Feeder Design */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-10">
           <div className="flex justify-center items-start flex-col mb-5">
             <div className="images relative w-full aspect-square">
-              {/* Interactive Carousel for Dashboard PMP Jabar */}
+              {/* Interactive Carousel for Project 2 */}
               <div className="relative w-full h-full flex justify-center items-center">
                 {/* Main carousel container */}
                 <div className="relative w-[80%] h-[70%] flex justify-center items-center">
@@ -1108,9 +1347,9 @@ export default function Page() {
 
                         if (Math.abs(diff) > 50) {
                           if (diff > 0) {
-                            nextPmpImage();
+                            nextImage();
                           } else {
-                            prevPmpImage();
+                            prevImage();
                           }
                           document.removeEventListener(
                             "mousemove",
@@ -1137,7 +1376,7 @@ export default function Page() {
                   >
                     <AnimatePresence mode="wait">
                       <motion.div
-                        key={currentPmpImageIndex}
+                        key={currentImageIndex}
                         initial={{ opacity: 0, x: 100, rotateY: 45 }}
                         animate={{ opacity: 1, x: 0, rotateY: 0 }}
                         exit={{ opacity: 0, x: -100, rotateY: -45 }}
@@ -1146,8 +1385,8 @@ export default function Page() {
                       >
                         <div className="relative w-full h-full">
                           <Image
-                            src={pmpImages[currentPmpImageIndex].src}
-                            alt={pmpImages[currentPmpImageIndex].alt}
+                            src={project2Images[currentImageIndex].src}
+                            alt={project2Images[currentImageIndex].alt}
                             layout="fill"
                             objectFit="contain"
                             placeholder="blur"
@@ -1161,7 +1400,7 @@ export default function Page() {
                   {/* Navigation controls */}
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20">
                     <button
-                      onClick={prevPmpImage}
+                      onClick={prevImage}
                       className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
                       aria-label="Previous image"
                     >
@@ -1173,7 +1412,7 @@ export default function Page() {
                   </div>
                   <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20">
                     <button
-                      onClick={nextPmpImage}
+                      onClick={nextImage}
                       className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
                       aria-label="Next image"
                     >
@@ -1186,12 +1425,12 @@ export default function Page() {
 
                   {/* Thumbnail indicators */}
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
-                    {pmpImages.map((_, index) => (
+                    {project2Images.map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => setCurrentPmpImageIndex(index)}
+                        onClick={() => setCurrentImageIndex(index)}
                         className={`w-3 h-3 rounded-full transition-all ${
-                          currentPmpImageIndex === index
+                          currentImageIndex === index
                             ? "bg-blue-500 scale-125"
                             : "bg-gray-300"
                         }`}
@@ -1224,49 +1463,24 @@ export default function Page() {
             }}
           >
             <h2 className="text-2xl font-bold tracking-wider mb-3">
-              Dashboard PMP Provinsi Jawa Barat
+              IoT-Based Automatic Bird Feeder Design
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              Dashboard PMP Jabar is a web-based information system built with Next.js 
-              to support monitoring and management of the PMP (Pendidikan Mengajar 
-              Profesional) program in West Java. The dashboard provides real-time data 
-              visualization, participant management, and reporting features that help 
-              administrators track program progress efficiently. With a modern and 
-              responsive interface, the platform enables stakeholders to access 
-              critical insights, generate reports, and make data-driven decisions 
-              to improve the quality of education across the region.
+              This automatic bird feeder design system is made for bird lovers but have limited time so they don&apos;t have time to feed their pet birds regularly. 
+              This automatic bird feeder design system can be controlled using a smartphone so that it can make it easier for someone who keeps birds but has limited time to feed them via smartphone wherever they are. 
+              For now, the application on the smartphone or used to control the provision of bird feed still uses a second party, namely Blynk IoT, which you can find in your PlayStore or AppStore.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
-              Using Technology Next.js, React.js, Tailwind CSS, TypeScript
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <a
-                href="https://github.com/BrillianHaikal89/dashboard-pmp-jabar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
-              >
-                <FontAwesomeIcon icon={faCode} />
-                <span>View Source Code</span>
-              </a>
-              <a
-                href="https://dashboard-pmp-jabar.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition-colors"
-              >
-                <FontAwesomeIcon icon={faExternalLinkAlt} />
-                <span>Live Demo</span>
-              </a>
+              Using Technology C++
             </div>
           </motion.div>
         </div>
 
-        {/* Project 7 - Dashboard SPMB Provinsi Jawa Barat */}
+        {/* Project 8 - Cafe Cashier Management System */}
         <div className="relative w-screen mx-auto container gap-4 px-10 grid grid-cols-1 md:grid-cols-2 mb-20">
           <div className="flex justify-center items-start flex-col mb-5">
             <div className="images relative w-full aspect-square">
-              {/* Interactive Carousel for Dashboard SPMB Provinsi Jawa Barat */}
+              {/* Interactive Carousel for Cafe Cashier */}
               <div className="relative w-full h-full flex justify-center items-center">
                 {/* Main carousel container */}
                 <div className="relative w-[80%] h-[70%] flex justify-center items-center">
@@ -1282,9 +1496,9 @@ export default function Page() {
 
                         if (Math.abs(diff) > 50) {
                           if (diff > 0) {
-                            nextSpmbImage();
+                            nextCafeImage();
                           } else {
-                            prevSpmbImage();
+                            prevCafeImage();
                           }
                           document.removeEventListener(
                             "mousemove",
@@ -1311,7 +1525,7 @@ export default function Page() {
                   >
                     <AnimatePresence mode="wait">
                       <motion.div
-                        key={currentSpmbImageIndex}
+                        key={currentCafeImageIndex}
                         initial={{ opacity: 0, x: 100, rotateY: 45 }}
                         animate={{ opacity: 1, x: 0, rotateY: 0 }}
                         exit={{ opacity: 0, x: -100, rotateY: -45 }}
@@ -1320,8 +1534,8 @@ export default function Page() {
                       >
                         <div className="relative w-full h-full">
                           <Image
-                            src={spmbImages[currentSpmbImageIndex].src}
-                            alt={spmbImages[currentSpmbImageIndex].alt}
+                            src={cafeImages[currentCafeImageIndex].src}
+                            alt={cafeImages[currentCafeImageIndex].alt}
                             layout="fill"
                             objectFit="contain"
                             placeholder="blur"
@@ -1335,7 +1549,7 @@ export default function Page() {
                   {/* Navigation controls */}
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 z-20">
                     <button
-                      onClick={prevSpmbImage}
+                      onClick={prevCafeImage}
                       className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
                       aria-label="Previous image"
                     >
@@ -1347,7 +1561,7 @@ export default function Page() {
                   </div>
                   <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20">
                     <button
-                      onClick={nextSpmbImage}
+                      onClick={nextCafeImage}
                       className="bg-white bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-opacity-100 transition-all"
                       aria-label="Next image"
                     >
@@ -1360,12 +1574,12 @@ export default function Page() {
 
                   {/* Thumbnail indicators */}
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
-                    {spmbImages.map((_, index) => (
+                    {cafeImages.map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => setCurrentSpmbImageIndex(index)}
+                        onClick={() => setCurrentCafeImageIndex(index)}
                         className={`w-3 h-3 rounded-full transition-all ${
-                          currentSpmbImageIndex === index
+                          currentCafeImageIndex === index
                             ? "bg-blue-500 scale-125"
                             : "bg-gray-300"
                         }`}
@@ -1398,25 +1612,22 @@ export default function Page() {
             }}
           >
             <h2 className="text-2xl font-bold tracking-wider mb-3">
-              Dashboard SPMB Provinsi Jawa Barat
+              Cafe Cashier Management System
             </h2>
             <p className="text-gray-600 text-justify title text-lg">
-              Dashboard SPMB Provinsi Jawa Barat is a web-based information system built 
-              with Next.js to support the implementation of SPMB (Sistem Penerimaan Murid Baru) 
-              in West Java Province. The dashboard provides real-time monitoring of student 
-              admission data, school capacity management, applicant verification, and 
-              comprehensive reporting features for education authorities. With a modern 
-              and responsive interface, the platform enables administrators to track 
-              registration progress, manage school quotas, verify applicant documents, 
-              and generate accurate reports to ensure a transparent, fair, and efficient 
-              student admission process across the region.
+              A comprehensive cafe cashier system designed to streamline order management, 
+              payment processing, and inventory tracking for small to medium-sized cafes. 
+              The system features an intuitive interface for cashiers, real-time sales reporting, 
+              and integration with kitchen display systems. It helps cafe owners manage their 
+              business more efficiently with features like customer loyalty programs, 
+              sales analytics, and employee performance tracking.
             </p>
             <div className="mt-3 text-black font-medium bg-white py-1 px-3 rounded-full inline-block">
-              Using Technology Next.js, React.js, Tailwind CSS, TypeScript
+              Using Technology React.js, Node.js, Express, MongoDB, Tailwind CSS
             </div>
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <a
-                href="https://github.com/BrillianHaikal89/dashboard-spmb-jabar"
+                href="https://github.com/BrillianHaikal89/caffe-cashier"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors"
@@ -1425,7 +1636,7 @@ export default function Page() {
                 <span>View Source Code</span>
               </a>
               <a
-                href="#"
+                href="https://caffe-cashier-att.brlnz.my.id/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition-colors"
