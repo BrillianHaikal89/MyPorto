@@ -399,7 +399,7 @@ const projects = [
     desc: "Dashboard SPMB Provinsi Jawa Barat is a web-based information system built with Next.js to support the implementation of SPMB (Sistem Penerimaan Murid Baru) in West Java Province. The dashboard provides real-time monitoring of student admission data, school capacity management, applicant verification, and comprehensive reporting features for education authorities. With a modern and responsive interface, the platform enables administrators to track registration progress, manage school quotas, verify applicant documents, and generate accurate reports to ensure a transparent, fair, and efficient student admission process across the region.",
     tech: "Next.js, React.js, Tailwind CSS, TypeScript",
     github: "https://github.com/BrillianHaikal89/dashboard-spmb-jabar",
-    demo: "#",
+    demo: "https://spmb.bbpmpjabar.id/",
     images: [
       { src: Spmb1, alt: "Dashboard SPMB - Overview" },
       { src: Spmb2, alt: "Dashboard SPMB - Data Management" },
